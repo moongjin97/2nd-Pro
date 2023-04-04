@@ -1,0 +1,52 @@
+.head {
+  border-bottom: 1px solid black;
+}
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
+
+.all {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 700px;
+}
+
+.content-in {
+  text-align: center;
+}
+.comBtnDiv {
+  padding-top: 20px;
+}
+.comBtn {
+  border-radius: 4px;
+  padding: 5px 9px;
+  background-color: rgb(0, 149, 246);
+  color: white;
+  border: none;
+  width: 150px;
+  height: 30px;
+  font-weight: 900;
+}
+
+h2 {
+  font-weight: 100;
+  margin: 0;
+  font-size: 28px;
+}
+h3 {
+  font-weight: 100;
+  margin: 0;
+  font-size: 18px;
+}
