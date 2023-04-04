@@ -1,0 +1,153 @@
+
+body {
+  margin: 0px;
+}
+
+p {
+  margin: 0px;
+}
+
+.insta_logo {
+  justify-self: center;
+  align-self: center;
+  width: 100px;
+  height: 30px;
+  
+}
+
+.resetPw_header {
+  max-width: 950px;
+  height: 60px;
+  padding: 0px 10px;
+  display: flex;
+  margin: 0px auto;
+}
+
+.header_hr {
+  opacity: 0.4;
+  margin: 0px;
+}
+
+.body_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.login_box {
+  margin-top: 60px;
+  display: flex;
+  width: 400px;
+  height: 560px;
+  border: solid 1px rgba(0,0,0,0.2);
+  border-radius: 1%;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.text_frame {
+  width: 300px;
+  text-align: center;
+}
+
+.div_wrap {
+  height: 100%;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: start;
+  flex-wrap: wrap;
+}
+
+.div_height60 {
+  height: 60%;
+}
+
+.div_height40 {
+  height: 40%;
+}
+
+.iconset_Lock {
+  margin-top: 20px;
+  background-repeat: no-repeat;
+  background-position: -130px 0;
+  height: 96px;
+  width: 96px;
+  background-image: url(https://static.cdninstagram.com/rsrc.php/v3/y5/r/TJztmXpWTmS.png);
+}
+
+.txt_color1 {
+  color: rgba(32, 32, 32, 0.5);
+}
+
+.txt_color2 {
+  color: rgba(32, 32, 32, 0.4);
+}
+
+.bold_text17 {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.bold_text15 {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.thin_text13 {
+  font-size: 13px;
+}
+
+.thin_text14 {
+  font-size: 14px;
+}
+
+.login_inputTxt {
+  text-align: start;
+  border-color: rgba(200, 200, 200,0.2);
+  background-color: rgba(200, 200, 200,0.2);
+  border-radius: 5px;
+  height: 35px;
+  font-size: 15px;
+  padding: 2px 4px;
+}
+
+.blue_button {
+  padding: 0;
+  width: 100%;
+  height: 30px;
+  margin-top: 15px;
+  background-color: #46b5ff;
+  border-color:#46b5ff;
+}
+
+.login_home {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-color: rgba(200, 200, 200,0.2);
+  background-color: rgba(200, 200, 200,0.2);
+}
+
+.horizen_line {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: rgba(0,0,0,0.35);
+  margin: 8px 0px;
+}
+
+.horizen_line::after , .horizen_line::before {
+  content: "";
+  flex-grow: 1;
+  margin: 0px 16px;
+  background: rgba(0,0,0,0.35);
+  height: 1px;
+  font-size: 0px;
+  line-height: 0px;
+}
