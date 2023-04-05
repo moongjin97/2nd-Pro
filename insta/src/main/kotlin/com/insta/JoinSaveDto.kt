@@ -4,14 +4,14 @@ import java.time.LocalDateTime
 
 data class JoinSaveDto (
 
-    private var userNo:String?,
-    private var userId:String?,
-    private var userPw:String?,
-    private var userNm:String?,
+    var userNo:String?,
+    var userId:String?,
+    var userPw:String?,
+    var userNm:String?,
     var userPhone:String?,
     var userEmail:String?,
-    private var userJoinDt:LocalDateTime?,
-    private var userDelDt:LocalDateTime?,
-    private var userSt:String?
+    var userJoinDt:LocalDateTime?,
+    var userDelDt:LocalDateTime?,
+    var userSt:String?
 
     )

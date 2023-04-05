@@ -4,8 +4,8 @@ import lombok.Getter
 
 @Getter
 data class JoinFirstDto(
-    private var userId:String?,
-    private var userNm:String?,
-    private var userPw:String?,
+    var userId:String?,
+    var userNm:String?,
+    var userPw:String?,
     var userPaE:String?,
 )
