@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Main</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        display: block;
+      }
+      .sideMenu {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        height: 100vh;
+        padding: 8px 12px 20px 12px;
+        border-right: solid 1px gray;
+      }
+      .sideLogoBox {
+        width: 100%;
+      }
+      .sideLogo {
+        width: 220px;
+        height: 30px;
+        padding: 25px 12px 0px 12px;
+        margin-bottom: 25px;
+      }
+      .logoMain {
+        width: 105px;
+        height: 30px;
+      }
+      .sideMenuList {
+        width: 100%;
+      }
+      .sideMenuEle {
+        width: 220px;
+        height: 56px;
+      }
+      .sideMenuEleCont {
+        display: flex;
+        padding: 12px;
+        align-items: center;
+      }
+      .sideMenuLogo {
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+      }
+      .sideAnotherMenu {
+        position: absolute;
+        bottom: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div>
+        <div class="wrap">
+          <div class="main">
+            <div class="sideMenu">
+              <div>
+                <div>
+                  <div class="sideLogoBox">
+                    <div class="sideLogo">
+                      <div>
+                        <a
+                          ><img
+                            class="logoMain"
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM4AAAA6CAMAAADPwpb5AAAC/VBMVEUAAAAjHyAjHyD///8jICAkHyQjHyAnISFAIEAjICAkJCQkICEjHyAoIiIjHyArKyskJCQlISFVVVUjICGAgIAnISEkHyEkICElHyUkHyAuLi4jICMjICEuIyMjICEpIyNAQEAoIiIjICIlICUmISEkICEjICMkISEpKSkkICAjICElHyEzMzMlIiIkICQjICEkHyEkICEkICEkICAmIiI5OTkmJiYlICIjHyAnJycmISEoKCgjHyEkICEkJCQlHyIjICIkICAkHyEjIyMjICEkICAkHyElICAkICAkHyEkHyEkISEkHyEkJCQjICEkHyAlHyIkICEkHyAnJyckICEjHyEsISEpIiIkICEjICAkISEkICAjHyMrICskICAkISEkHyAjIyMjIyMrKyskHyAkICEkISEjICEmIiIkICQmJiYrKyskHyEjIyMjHyEkICEzMzMkHyAoICgzIiItLS0jICAkISEnIyMkHyEpISEkICAmIiIjICAkHyIkIiIkICInIyMkICAkICAjICEkHyAmJiYmICYkICEkICAkHyAkICIlICAkICAkHyIjHyEjHyAkHyAlISEkICIjICEkICAmIiIkHyEkICAkICAlIiIjICAkICEjHyElIiIkICAkHyAkISEjHyEkISEkICEkJCQkJCQkISEkISEnJycjICIlICIkHyAjISEkICEkICAkICIkICEjICAkHyEkJCQjICEkHyIkHyElISEjICAjICAjHyAlICAkHyAlISErIiIkICAkHyElICIjICEjICAlHyEkHyElISEjHyEkICElICMlISEmHyMjISEkHyEkICEkICAnIiIjHyEjICEmISEjHyEjISElICAjICEkICAjICAjICEkISEjHyEmICMjISElICAmHyIkJCQmICAkICAkHyEkICIkICEkHyQjISEkICIjISEjHyEmHyMkICAkICIjICAjICAkICAwIDAkICEkICEjHyEkISEkISEjHyEkICEkICIkICAkHyEkISEjHyBS+u4fAAAA/nRSTlMA/v0B9zH8LgjvMvn2JvUGHD4D8AIn+/Ep7AtQmRbgLAQtmDA9+EhrGb7YkgVLQNHjsOqHQwkUYeYhLxPM4ipSkLd6JOmWrG9PlPNk2yPo3lqx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"
+                        /></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sideMainBox">
+                    <div class="sideMenuList">
+                      <div class="sideMenuEle">
+                        <div class="sideMenuEleCont">
+                          <a
+                            ><img
+                              class="sideMenuLogo"
+                              src="https://cdn-icons-png.flaticon.com/512/5948/5948524.png"
+                              alt=""
+                          /></a>
+                          <span>홈</span>
+                        </div>
+                      </div>
+                      <div class="sideMenuEle">
+                        <div class="sideMenuEleCont">
+                          <a
+                            ><img
+                              class="sideMenuLogo"
+                              src="https://cdn-icons-png.flaticon.com/512/5948/5948534.png"
+                              alt=""
+                          /></a>
+                          <span>검색</span>
+                        </div>
+                      </div>
+                      <div class="sideMenuEle">
+                        <div class="sideMenuEleCont">
+                          <a
+                            ><img
+                              class="sideMenuLogo"
+                              src="https://cdn-icons-png.flaticon.com/512/5728/5728145.png"
+                              alt=""
+                          /></a>
+                          <span>메시지</span>
+                        </div>
+                      </div>
+                      <div class="sideMenuEle">
+                        <div class="sideMenuEleCont">
+                          <a
+                            ><img
+                              class="sideMenuLogo"
+                              src="https://cdn-icons-png.flaticon.com/512/54/54731.png"
+                              alt=""
+                          /></a>
+                          <span>만들기</span>
+                        </div>
+                      </div>
+                      <div class="sideMenuEle">
+                        <div class="sideMenuEleCont">
+                          <a
+                            ><img
+                              class="sideMenuLogo"
+                              src="https://cdn-icons-png.flaticon.com/512/54/54731.png"
+                              alt=""
+                          /></a>
+                          <span>프로필(사진임시)</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sideAnotherMenu">
+                    <div class="sideMenuEleCont">
+                      <a
+                        ><img
+                          class="sideMenuLogo"
+                          src="https://cdn-icons-png.flaticon.com/512/5135/5135168.png"
+                          alt=""
+                      /></a>
+                      <span>더 보기</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mainBox">
+              <section class="mainContent">
+                <main class="mainContent">
+                  <section>
+                    <div class="mainArticle"></div>
+                    <div class="subArticle">
+                      <div></div>
+                      <div></div>
+                      <div>
+                        <div class="_ab8b">
+                          <nav class="_ab8c">
+                            <ul class="_ab8d _ab8e">
+                              <li class="_ab8f">
+                                <a
+                                  class="_ab8g"
+                                  href="https://about.instagram.com/"
+                                  rel="nofollow noopener noreferrer"
+                                  target="_blank"
+                                >
+                                  <span
+                                    class="_aacl _aacn _aacu _aad1 _aad7 _aade"
+                                    >소개</span
+                                  >
+                                </a>
+                              </li>
+                              <li class="_ab8f">
+                                <a
+                                  class="_ab8g"
+                                  href="https://help.instagram.com/"
+                                  rel="nofollow noopener noreferrer"
+                                  target="_blank"
+                                  ><span
+                                    class="_aacl _aacn _aacu _aad1 _aad7 _aade"
+                                    >도움말</span
+                                  ></a
+                                >
+                              </li>
+                              <li class="_ab8f">
+                                <a
+                                  class="_ab8g"
+                                  href="https://about.instagram.com/blog/"
+                                  rel="nofollow noopener noreferrer"
+                                  target="_blank"
+                                  ><span
+                                    class="_aacl _aacn _aacu _aad1 _aad7 _aade"
+                                    >홍보 센터</span
+                                  ></a
+                                >
+                              </li>
+                              <li class="_ab8f">
+                                <a
+                                  class="_ab8g"
+                                  href="https://developers.facebook.com/docs/instagram"
+                                  rel="nofollow noopener noreferrer"
+                                  target="_blank"
+                                  ><span
+                                    class="_aacl _aacn _aacu _aad1 _aad7 _aade"
+                                    >API</span
+                                  ></a
+                                >
+                              </li>
+                              <li class="_ab8f">
+                                <a
+                                  class="_ab8g"
+                                  href="/about/jobs/"
+                                  rel="nofollow noopener noreferrer"
+                                  target="_blank"
+                                  ><span
+                                    class="_aacl _aacn _aacu _aad1 _aad7 _aade"
+                                    >채용 정보</span
+                                  ></a
+                                >
+                              </li>
+                              <li class="_ab8f">
+                                <a
+                                  class="_ab8g"
+                                  href="/legal/privacy/"
+                                  rel="nofollow noopener noreferrer"
+                                  target="_blank"
+                                  ><span
+                                    class="_aacl _aacn _aacu _aad1 _aad7 _aade"
+                                    >개인정보처리방침</span
+                                  ></a
+                                >
+                              </li>
+                              <li class="_ab8f">
+                                <a
+                                  class="_ab8g _ab8h"
+                                  href="/legal/terms/"
+                                  rel="nofollow noopener noreferrer"
+                                  target="_blank"
+                                  ><span
+                                    class="_aacl _aacn _aacu _aad1 _aad7 _aade"
+                                    >약관</span
+                                  ></a
+                                >
+                              </li>
+                              <li class="_ab8f">
+                                <a
+                                  class="_ab8g"
+                                  href="/explore/locations/"
+                                  rel="nofollow noopener noreferrer"
+                                  target="_blank"
+                                  ><span
+                                    class="_aacl _aacn _aacu _aad1 _aad7 _aade"
+                                    >위치</span
+                                  ></a
+                                >
+                              </li>
+                              <li class="_ab8f">
+                                <span class="_aajg _aajl _ab8g"
+                                  ><span
+                                    class="_aacl _aacn _aacu _aad1 _aad7 _aade"
+                                    >언어</span
+                                  ><select
+                                    aria-label="표시 언어 변경"
+                                    class="_aajm"
+                                  >
+                                    <option value="af">Afrikaans</option>
+                                    <option value="cs">Čeština</option>
+                                    <option value="da">Dansk</option>
+                                    <option value="de">Deutsch</option>
+                                    <option value="el">Ελληνικά</option>
+                                    <option value="en">English</option>
+                                    <option value="en-gb">English (UK)</option>
+                                    <option value="es">Español (España)</option>
+                                    <option value="es-la">Español</option>
+                                    <option value="fi">Suomi</option>
+                                    <option value="fr">Français</option>
+                                    <option value="id">Bahasa Indonesia</option>
+                                    <option value="it">Italiano</option>
+                                    <option value="ja">日本語</option>
+                                    <option value="ko">한국어</option>
+                                    <option value="ms">Bahasa Melayu</option>
+                                    <option value="nb">Norsk</option>
+                                    <option value="nl">Nederlands</option>
+                                    <option value="pl">Polski</option>
+                                    <option value="pt-br">
+                                      Português (Brasil)
+                                    </option>
+                                    <option value="pt">
+                                      Português (Portugal)
+                                    </option>
+                                    <option value="ru">Русский</option>
+                                    <option value="sv">Svenska</option>
+                                    <option value="th">ภาษาไทย</option>
+                                    <option value="tl">Filipino</option>
+                                    <option value="tr">Türkçe</option>
+                                    <option value="zh-cn">中文(简体)</option>
+                                    <option value="zh-tw">中文(台灣)</option>
+                                    <option value="bn">বাংলা</option>
+                                    <option value="gu">ગુજરાતી</option>
+                                    <option value="hi">हिन्दी</option>
+                                    <option value="hr">Hrvatski</option>
+                                    <option value="hu">Magyar</option>
+                                    <option value="kn">ಕನ್ನಡ</option>
+                                    <option value="ml">മലയാളം</option>
+                                    <option value="mr">मराठी</option>
+                                    <option value="ne">नेपाली</option>
+                                    <option value="pa">ਪੰਜਾਬੀ</option>
+                                    <option value="si">සිංහල</option>
+                                    <option value="sk">Slovenčina</option>
+                                    <option value="ta">தமிழ்</option>
+                                    <option value="te">తెలుగు</option>
+                                    <option value="vi">Tiếng Việt</option>
+                                    <option value="zh-hk">中文(香港)</option>
+                                    <option value="bg">Български</option>
+                                    <option value="fr-ca">
+                                      Français (Canada)
+                                    </option>
+                                    <option value="ro">Română</option>
+                                    <option value="sr">Српски</option>
+                                    <option value="uk">Українська</option>
+                                  </select></span
+                                >
+                              </li>
+                              <li class="_ab8f">
+                                <a
+                                  class="_ab8g"
+                                  href="https://about.meta.com/technologies/meta-verified/"
+                                  rel="nofollow noopener noreferrer"
+                                  target="_blank"
+                                  ><span
+                                    class="_aacl _aacn _aacu _aad1 _aad7 _aade"
+                                    >Meta Verified</span
+                                  ></a
+                                >
+                              </li>
+                            </ul>
+                          </nav>
+                          <span class="_ab8i"
+                            ><span class="_aacl _aacn _aacu _aad1 _aad7 _aade"
+                              >© 2023 Instagram from Meta</span
+                            ></span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </main>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
