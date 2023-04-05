@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>가입하기 Insragram</title>
-    <link rel="stylesheet" href="pro2CSS/join.css" />
+    <link rel="stylesheet" href="/css/join.css" />
   </head>
   <body>
     <div class="wrap">
@@ -31,21 +31,23 @@
           </div>
         </div>
         <div class="line">또는</div>
-        <div class="userInfo">
-          <input type="text" placeholder="휴대폰 번호 또는 이메일 주소" />
-          <input type="text" placeholder="성명" />
-          <input type="text" placeholder="사용자이름" />
-          <input type="password" placeholder="비밀번호" />
-        </div>
-        <span id="span1"
-          >저희 서비스를 이용하는 사람들이 회원님의 연락처 정보를 Instargram에
-          업로드했을 수도 있습니다.
-          <a href="#" id="the">더 알아보기</a>
-        </span>
+        <form action="/joinAction" method="post">
+          <div class="userInfo">
+            <input type="text" name="userNo" placeholder="휴대폰 번호 또는 이메일 주소" />
+            <input type="text" name="userNm" placeholder="성명" />
+            <input type="text" name="userId" placeholder="사용자이름" />
+            <input type="password" name="userPw" placeholder="비밀번호" />
+          </div>
+          <span id="span1"
+            >저희 서비스를 이용하는 사람들이 회원님의 연락처 정보를 Instargram에
+            업로드했을 수도 있습니다.
+            <a href="#" id="the">더 알아보기</a>
+          </span>
 
-        <div>
-          <button class="joinBtn">가입</button>
-        </div>
+          <div>
+            <button class="joinBtn">가입</button>
+          </div>
+        </form>
       </div>
       <div class="lowDiv">
         <p>계정이 있으신가요? <a href="#">로그인</a></p>

@@ -3,6 +3,7 @@ package com.insta
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
 
 @Controller
 class MainController {
@@ -24,4 +25,14 @@ class MainController {
     fun findPw(model: Model):String{
         return "resetPw"
     }
+
+    @PostMapping("/joinAction")
+    fun joinAction() :String {
+
+        return "index"
+    }
+
+
+
+
 }
