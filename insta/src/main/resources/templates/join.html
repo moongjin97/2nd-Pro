@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>가입하기 Insragram</title>
-    <link rel="stylesheet" href="pro2CSS/join.css" />
+    <link rel="stylesheet" href="/css/join.css" />
   </head>
   <body>
     <div class="wrap">
@@ -31,11 +31,13 @@
           </div>
         </div>
         <div class="line">또는</div>
+        <form action="/join" method="post" name="loginInfo">
         <div class="userInfo">
-          <input type="text" placeholder="휴대폰 번호 또는 이메일 주소" />
-          <input type="text" placeholder="성명" />
-          <input type="text" placeholder="사용자이름" />
-          <input type="password" placeholder="비밀번호" />
+          <input type="text" placeholder="휴대폰 번호 또는 이메일 주소"
+          name="userPaE" id="userPaE"/>
+          <input type="text" placeholder="성명"  name="userNm" id="User_NM"/>
+          <input type="text" placeholder="사용자이름" name="userId" id="User_ID"/>
+          <input type="password" placeholder="비밀번호" name="userPw" id="User_PW"/>
         </div>
         <span id="span1"
           >저희 서비스를 이용하는 사람들이 회원님의 연락처 정보를 Instargram에
@@ -46,17 +48,65 @@
         <div>
           <button class="joinBtn">가입</button>
         </div>
+        </form>
       </div>
+
       <div class="lowDiv">
-        <p>계정이 있으신가요? <a href="#">로그인</a></p>
+        <p>계정이 있으신가요? <a href="/">로그인</a></p>
       </div>
       <div id="AppDw">
         <span>앱을 다운로드 하세요.</span>
       </div>
       <div class="img">
-        <img src="" alt="명진이한테" />
-        <img src="" alt="받을꺼임 ㅋ" />
+        <a href="https://apps.apple.com/app/instagram/id389801252?vt=lo"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEU
+        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
+        jgAAAABJRU5ErkJggg==" alt="애플스토어에서 인스타그램 검색한 결과" id="AppStore"></a>
+        <a
+                href="https://play.google.com/store/apps/details?id=com.instagram.android&amp;referrer=utm_source%3Dinstagramweb&amp;utm_campaign=loginPage&amp;ig_mid=F86341FF-8B95-459C-BC37-EC07B51F263E&amp;utm_content=lo&amp;utm_medium=badge"
+        ><img
+                src="http://ec2-52-79-71-191.ap-northeast-2.compute.amazonaws.com/static/media/googlePlay.c0a603f0.png"
+                alt="구글플레이스토어에서 인스타그램 검색한 결과"
+                id="googlePlay"
+        /></a>
       </div>
     </div>
   </body>
+<script>
+
+
+
+</script>
+
+
 </html>

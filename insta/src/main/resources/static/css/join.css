@@ -97,8 +97,9 @@ input {
   border-radius: 8px;
   font-weight: 900;
   color: white;
+   margin-top: 20px;
   font-size: 14px;
-  margin-top: 10px;
+
   padding: auto;
   margin-bottom: 12px;
   border: none;
@@ -123,4 +124,17 @@ input {
 .img {
   display: flex;
   justify-content: space-around;
+}
+
+#AppStore{
+    width:136px;
+    height:40px;
+}
+
+#googlePlay{
+    width:136px;
+    height:40px;
+}
+.img{
+margin-top:20px;
 }
