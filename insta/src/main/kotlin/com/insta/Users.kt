@@ -4,25 +4,25 @@ import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity
-@Table(name = "user")
-data class User(
+@Table(name = "users")
+data class Users(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val userNo: Long? = null,
+    private val userNo: Int? = null,
     @Column(name = "USER_ID")
-    val userId: String,
+    private val userId: String,
     @Column(name = "USER_PW")
-    val userPw: String,
+    private val userPw: String,
     @Column(name = "USER_NM")
-    val userNm: String,
+    private val userNm: String,
     @Column(name = "USER_PHONE")
-    val userPhone: String?,
+    private val userPhone: String?,
     @Column(name = "USER_EMAIL")
-    val userEmail: String,
+    private val userEmail: String?,
     @Column(name = "JOIN_DT")
-    val userJoinDt: LocalDateTime,
+    private val userJoinDt: LocalDateTime,
     @Column(name = "DEL_DT")
-    val userDelDt: LocalDateTime?,
+    private val userDelDt: LocalDateTime?,
     @Column(name = "USER_ST")
-    val userSt: String
+    private val userSt: String
 )
