@@ -2,6 +2,7 @@ package com.insta.Service
 
 import com.insta.Dto.JoinFirstDto
 import com.insta.Dto.JoinSaveDto
+import com.insta.Dto.LoginDto
 import com.insta.Repository.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -55,5 +56,21 @@ class JoinService {
         return true
     }
 
+
+
+    fun login(loginDto: LoginDto): Boolean {
+
+        var loginCheck = userRepository.findByUserId(loginDto.userId.toString())
+        var loginDtoUserPw = crypto(loginDto.userPw.toString())
+        if(loginCheck != null){
+          if(loginCheck.userPw.equals(loginDtoUserPw)){
+              return true
+          }else{
+              return false
+          }
+      }else{
+        return false
+        }
+}
 }
 
