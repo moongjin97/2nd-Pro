@@ -31,7 +31,8 @@ class JoinController {
         }
     return "<script>alert('회원가입 되셨습니다.'); location.href='/'</script>"
     }
-
+    
+    //로그인 액션받기
     @PostMapping("/login")
     @ResponseBody
     fun login(@ModelAttribute loginDto: LoginDto,
