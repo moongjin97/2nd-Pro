@@ -1,4 +1,4 @@
-package com.insta
+package com.insta.Dto
 
 import lombok.Getter
 

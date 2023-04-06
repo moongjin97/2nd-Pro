@@ -1,4 +1,4 @@
-package com.insta
+package com.insta.Controller
 
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model

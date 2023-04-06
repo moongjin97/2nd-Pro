@@ -1,4 +1,4 @@
-package com.insta
+package com.insta.Entity
 
 import java.time.LocalDateTime
 import javax.persistence.*

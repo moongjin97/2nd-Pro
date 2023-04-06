@@ -1,5 +1,6 @@
-package com.insta
+package com.insta.Dto
 
+import com.insta.Entity.Users
 import java.time.LocalDateTime
 
 data class JoinSaveDto (
@@ -17,7 +18,7 @@ data class JoinSaveDto (
     ) {
     fun toEntity(): Users {
         return Users(
-            userNo = userNo?:0,
+//            userNo = userNo?:0,
             userId = userId ?: "",
             userPw = userPw ?: "",
             userNm = userNm ?: "",
@@ -25,7 +26,7 @@ data class JoinSaveDto (
             userEmail = userEmail ?: null,
             userJoinDt = userJoinDt ?: LocalDateTime.now(),
             userDelDt = userDelDt ?: null,
-            userSt = userSt ?: "Y"
+            userSt = userSt ?: "회원"
         )
     }
 
