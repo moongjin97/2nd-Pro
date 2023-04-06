@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <style>
+      html,
+      body,
+      div,
+      span,
+      applet,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      abbr,
+      acronym,
+      address,
+      big,
+      cite,
+      code,
+      del,
+      dfn,
+      em,
+      img,
+      ins,
+      kbd,
+      q,
+      s,
+      samp,
+      small,
+      strike,
+      strong,
+      sub,
+      sup,
+      tt,
+      var,
+      b,
+      u,
+      i,
+      center,
+      dl,
+      dt,
+      dd,
+      menu,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      article,
+      aside,
+      canvas,
+      details,
+      embed,
+      figure,
+      figcaption,
+      footer,
+      header,
+      hgroup,
+      main,
+      menu,
+      nav,
+      output,
+      ruby,
+      section,
+      summary,
+      time,
+      mark,
+      audio,
+      video {
+        margin: 0px;
+        padding: 0px;
+        border: 0px;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      .kAMalp {
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        padding: 20px;
+      }
+      .kAMalp .container {
+        display: flex;
+        width: 100%;
+        max-width: 935px;
+        background-color: rgb(255, 255, 255);
+      }
+      .kAMalp .container aside {
+        width: 250px;
+        position: relative;
+      }
+      .BhtmZ {
+        display: flex;
+        flex-direction: column;
+      }
+      menu,
+      ol,
+      ul {
+        list-style: none;
+      }
+      .KtIRS {
+        padding: 16px 16px 16px 30px;
+        cursor: pointer;
+        color: rgb(38, 38, 38);
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 600;
+        border-left: 2px solid rgb(38, 38, 38);
+      }
+      .iLExqo {
+        padding: 16px 16px 16px 30px;
+        cursor: pointer;
+        color: rgb(38, 38, 38);
+        font-size: 16px;
+        line-height: 20px;
+      }
+      .kAMalp .container section {
+        flex: 1 1 auto;
+      }
+      .jsKhAx {
+        padding: 40px 0px;
+        display: flex;
+        flex-direction: column;
+      }
+      .jsKhAx .profile {
+        display: flex;
+      }
+      .jsKhAx .profile img {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        margin: 2px 32px 0px 124px;
+      }
+      .jsKhAx .profile .name-guide {
+    display: flex;
+    flex-direction: column;
+}
+.jsKhAx .profile .name-guide .username {
+    font-size: 20px;
+    line-height: 22px;
+    margin-bottom: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 400;
+}
+.jsKhAx .profile .name-guide .guide {
+    color: rgb(0, 149, 246);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.PCVYV {
+    display: flex;
+    margin: 20px 100px 20px 0px;
+}
+.PCVYV aside {
+    text-align: right;
+    padding-right: 32px;
+    margin-top: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 18px;
+}
+.PCVYV .input-wrapper {
+    width: 355px;
+}
+.PCVYV .input-wrapper input {
+    border: 1px solid rgb(219, 219, 219);
+    background: 0px 0px;
+    border-radius: 3px;
+    font-size: 16px;
+    height: 32px;
+    padding: 0px 10px;
+    width: 100%;
+}
+.PCVYV .input-wrapper .guide {
+    margin-top: 10px;
+    color: rgb(142, 142, 142);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+}
+.jsKhAx .button-wrapper {
+    margin: 0px auto;
+}
+button {
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    font-weight: 600;
+}
+.dKHdxX {
+    border-radius: 4px;
+    padding: 5px 9px;
+    background-color: rgb(0, 149, 246);
+    color: rgb(255, 255, 255);
+}
+    </style>
+  </head>
+  <body>
+    <div class="sc-eXlEPa kAMalp" style="background-color: rgb(250, 250, 250)">
+      <div class="container" style="border: 1px solid rgb(219, 219, 219)">
+        <aside style="border-right: 1px solid rgb(219, 219, 219)">
+          <div class="sc-dUbtfd BhtmZ">
+            <ul>
+              <li class="sc-htJRVC KtIRS"><span>프로필 편집</span></li>
+              <li class="sc-htJRVC iLExqo"><span>비밀번호 변경</span></li>
+              <li class="sc-htJRVC iLExqo"><span>앱 및 웹사이트</span></li>
+              <li class="sc-htJRVC iLExqo"><span>이메일 및 SMS</span></li>
+              <li class="sc-htJRVC iLExqo"><span>푸시 알림</span></li>
+              <li class="sc-htJRVC iLExqo"><span>연락처 관리</span></li>
+              <li class="sc-htJRVC iLExqo"><span>개인정보 및 보안</span></li>
+              <li class="sc-htJRVC iLExqo"><span>로그인 활동</span></li>
+              <li class="sc-htJRVC iLExqo">
+                <span>Instagram에서 보낸 이메일</span>
+              </li>
+              <li class="sc-htJRVC iLExqo"><span>도움말</span></li>
+            </ul>
+          </div>
+        </aside>
+        <section>
+          <div class="sc-fmciRz hKEAti">
+            <div class="sc-gjNHFA jsKhAx">
+              <div class="profile">
+                <img
+                  src="https://instagram-s3-dev.s3.ap-northeast-2.amazonaws.com/member/base-UUID_base.PNG.png"
+                  alt="test"
+                  class="user-image"
+                />
+                <div class="name-guide">
+                  <span class="username">test</span
+                  ><span class="guide">프로필 사진 바꾸기</span>
+                </div>
+              </div>
+              <div class="input-wrapper">
+                <div class="sc-gyElHZ PCVYV">
+                  <aside><label for="memberUsername">사용자 이름</label></aside>
+                  <div class="input-wrapper">
+                    <input
+                      type="text"
+                      id="memberUsername"
+                      placeholder="사용자 이름"
+                      value="test"
+                    />
+                    <div class="guide">
+                      대부분의 경우 14일 이내에 사용자 이름을 다시
+                      yokattadesune(으)로 변경할 수 있습니다. 더 알아보기
+                    </div>
+                  </div>
+                </div>
+                <div class="sc-gyElHZ PCVYV">
+                  <aside><label for="memberName">이름</label></aside>
+                  <div class="input-wrapper">
+                    <input
+                      type="text"
+                      id="memberName"
+                      placeholder="이름"
+                      value="테스트"
+                    />
+                    <div class="guide">
+                      사람들이 이름, 별명 또는 비즈니스 이름 등 회원님의 알려진
+                      이름을 사용하여 회원님의 계정을 찾을 수 있도록 도와주세요.
+                      이름은 14일 안에 두 번만 변경할 수 있습니다.
+                    </div>
+                  </div>
+                </div>
+                <div class="sc-gyElHZ PCVYV">
+                  <aside><label for="memberWebsite">웹사이트</label></aside>
+                  <div class="input-wrapper">
+                    <input
+                      type="text"
+                      id="memberWebsite"
+                      placeholder="웹사이트"
+                      value=""
+                    />
+                    <div class="guide"></div>
+                  </div>
+                </div>
+                <div class="sc-gyElHZ PCVYV">
+                  <aside><label for="memberIntroduce">소개</label></aside>
+                  <div class="input-wrapper">
+                    <input
+                      type="text"
+                      id="memberIntroduce"
+                      placeholder="소개"
+                      value=""
+                    />
+                    <div class="guide">
+                      개인정보 비즈니스나 반려동물 등에 사용된 계정인 경우에도
+                      회원님의 개인정보를 입력하세요. 공개 프로필에는 포함되지
+                      않습니다.
+                    </div>
+                  </div>
+                </div>
+                <div class="sc-gyElHZ PCVYV">
+                  <aside><label for="memberEmail">이메일</label></aside>
+                  <div class="input-wrapper">
+                    <input
+                      type="text"
+                      id="memberEmail"
+                      placeholder="이메일"
+                      value=""
+                    />
+                    <div class="guide"></div>
+                  </div>
+                </div>
+                <div class="sc-gyElHZ PCVYV">
+                  <aside><label for="memberPhone">전화번호</label></aside>
+                  <div class="input-wrapper">
+                    <input
+                      type="text"
+                      id="memberPhone"
+                      placeholder="전화번호"
+                      value=""
+                    />
+                    <div class="guide"></div>
+                  </div>
+                </div>
+                <div class="sc-gyElHZ PCVYV">
+                  <aside><label for="memberGender">성별</label></aside>
+                  <div class="input-wrapper">
+                    <input
+                      type="text"
+                      id="memberGender"
+                      placeholder="성별"
+                      value="비공개"
+                    />
+                    <div class="guide"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="button-wrapper">
+                <button color="#fff" radius="4" class="sc-bBHHxi dKHdxX">
+                  제출
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
