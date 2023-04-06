@@ -24,6 +24,7 @@ class JoinService {
 
 
     fun saveJoin (joinFirstDto: JoinFirstDto):Boolean{
+
         println(joinFirstDto.toString())
         var joinSaveDto = JoinSaveDto(null,null,null,null,null,null,null,null,null)
         val PaE = joinFirstDto.userPaE
@@ -44,6 +45,7 @@ class JoinService {
         }else if(regex2.matches(PaE.toString())){
             joinSaveDto.userEmail = PaE
         }
+
         println("투스트링없는것 이메일:"+joinSaveDto.userEmail)
         println("투스트링없는것 핸드폰:"+joinSaveDto.userPhone)
 
