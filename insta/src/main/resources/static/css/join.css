@@ -1,0 +1,140 @@
+.wrap {
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.joinForm {
+  margin-top: 15px;
+  padding: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#instar {
+  padding-top: 25px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+h2 {
+  font: inherit;
+  font-weight: bold;
+  color: #8d949e;
+  font-size: 18px;
+}
+
+#facebookImg {
+  text-align: center;
+  width: 12px;
+  height: 12px;
+}
+
+#facebookBtn {
+  width: 268px;
+  height: 34px;
+  text-align: center;
+  background-color: #1877f2;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.line {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: gray;
+  font-size: 14px;
+  margin: 20px 0px;
+  font-weight: bold;
+}
+
+.line::before,
+.line::after {
+  content: "";
+  flex-grow: 1;
+  background: rgba(0, 0, 0, 0.35);
+  height: 1px;
+  font-size: 0px;
+  line-height: 0px;
+  margin: 0px 16px;
+}
+
+input {
+  width: 260px;
+  height: 40px;
+  margin-bottom: 10px;
+  background-color: rgba(200, 200, 200, 0.2);
+  border-color: rgba(200, 200, 200, 0.2);
+  padding-left: 10px;
+  border-radius: 3px;
+}
+
+#span1 {
+  font-size: 13px;
+  color: gray;
+  text-align: center;
+  padding: 8px;
+}
+
+#the {
+  text-decoration: none;
+  color: black;
+  font-size: 13px;
+}
+
+.joinBtn {
+  width: 268px;
+  height: 34px;
+  background-color: #25a8ff;
+  border-radius: 8px;
+  font-weight: 900;
+  color: white;
+   margin-top: 20px;
+  font-size: 14px;
+
+  padding: auto;
+  margin-bottom: 12px;
+  border: none;
+}
+
+.lowDiv {
+  margin-top: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 10px;
+}
+
+.lowDiv a {
+  text-decoration: none;
+  color: #25a8ff;
+}
+
+#AppDw {
+  margin-top: 30px;
+}
+
+.img {
+  display: flex;
+  justify-content: space-around;
+}
+
+#AppStore{
+    width:136px;
+    height:40px;
+}
+
+#googlePlay{
+    width:136px;
+    height:40px;
+}
+.img{
+margin-top:20px;
+}
