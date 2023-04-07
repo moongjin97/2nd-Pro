@@ -1,11 +1,7 @@
 <!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Title</title>
-    <link rel="stylesheet" href="css/main.css" type="text/css" />
-  </head>
-  <body>
+<html xmlns:th="http://www.thymeleaf.org">
+  <header th:fragment="headerFragment">
+    <link rel="stylesheet" href="css/main.css" />
     <div id="root">
       <div class="App">
         <nav class="sc-gsNilK hueUZT">
@@ -117,22 +113,8 @@
           </div>
         </nav>
         <div class="sc-ctqQKy fzSJhJ"></div>
-        <div class="sc-fotOHu eQkESC">
-          <main><section></section></main>
-          <aside class="sc-hKwDye iHPHcZ">
-            <a class="aside-imgLink" href="/profile/test"
-              ><div type="default" scale="1" class="sc-gsDKAQ hmIrBV">
-                <img src="https://instagram-s3-dev.s3.ap-northeast-2.amazonaws.com/member/base-UUID_base.PNG.png" alt="test" /></div
-            ></a>
-            <div class="aside-userInfo">
-              <span class="sc-dkPtRN dBqEUL aside-username"
-                ><a href="/profile/test">test</a></span
-              >
-              <div class="aside-realName">테스트</div>
-            </div>
-          </aside>
-        </div>
+        <div class="sc-fotOHu eQkESC"></div>
       </div>
     </div>
-  </body>
+  </header>
 </html>
