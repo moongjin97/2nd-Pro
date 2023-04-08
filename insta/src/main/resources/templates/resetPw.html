@@ -29,12 +29,12 @@
         <p class="thin_text14 text_frame txt_color1">이메일 주소, 전화번호 또는 사용자 이름을 입력하시면 계정에 다시 액세스할 수 있는 링크를 보내드립니다.</p>
       </div>
       <div class="div_wrap">
-        <form class="form_box" action="" method="post" >
+        <form class="form_box" action="/findAction" method="post" >
           <div class="">
-            <input class="login_inputTxt text_frame bold_text15" type="text" placeholder="이메일, 전화번호, 사용자 이름"> 
+            <input class="login_inputTxt text_frame bold_text15" type="text" placeholder="이메일, 전화번호, 사용자 이름" name="findInfo">
           </div>
           <div class="">
-            <input class="blue_button btn btn-primary bold_text17" type="button" onclick="" value="로그인 링크 보내기">
+            <input class="blue_button btn btn-primary bold_text17" type="submit" onclick="" value="로그인 링크 보내기">
           </div>
         </form>
       </div>
@@ -45,10 +45,12 @@
         <p class="bold_text17 txt_color2 text_frame horizen_line">또는</p>
       </div>
       <div class="div_wrap bold_text17">
-        <p class="text_frame">새 계정 만들기</p>
+        <a href="/join" id="NewID">
+          <p class="text_frame">새 계정 만들기</p>
+        </a>
       </div>
       <div class="div_wrap div_height60">
-        <button class="login_home bold_text17" type="button" onclick="location.href='http://www.naver.com';">로그인으로 돌아가기
+        <button class="login_home bold_text17" type="button" onclick="location.href='/';"/>로그인으로 돌아가기
       </div>
     </div>
   </div>

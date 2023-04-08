@@ -13,7 +13,7 @@ class MainController {
 
     @GetMapping("/main")
     fun mainForm(model: Model):String{
-        return "mainForm22"
+        return "mainForm"
     }
     @GetMapping("/join")
     fun joinForm(model: Model):String{
@@ -23,5 +23,10 @@ class MainController {
     @GetMapping("/findPw")
     fun findPw(model: Model):String{
         return "resetPw"
+    }
+
+    @GetMapping("/asd")
+    fun asd ():String{
+        return "pwSetting"
     }
 }
