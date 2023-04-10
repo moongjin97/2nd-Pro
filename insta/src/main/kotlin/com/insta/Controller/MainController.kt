@@ -29,4 +29,8 @@ class MainController {
     fun asd ():String{
         return "pwSetting"
     }
+    @GetMapping("/newPw")
+    fun newPw():String{
+        return "newPwSetting"
+    }
 }

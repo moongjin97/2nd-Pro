@@ -29,9 +29,9 @@
         <p class="thin_text14 text_frame txt_color1">이메일 주소, 전화번호 또는 사용자 이름을 입력하시면 계정에 다시 액세스할 수 있는 링크를 보내드립니다.</p>
       </div>
       <div class="div_wrap">
-        <form class="form_box" action="/findAction" method="post" >
+        <form class="form_box" action="/findAction" method="post" onsubmit="return CheckValue()">
           <div class="">
-            <input class="login_inputTxt text_frame bold_text15" type="text" placeholder="이메일, 전화번호, 사용자 이름" name="findInfo">
+            <input class="login_inputTxt text_frame bold_text15" type="text" placeholder="이메일, 전화번호, 사용자 이름" name="findInfo" id="inputValue">
           </div>
           <div class="">
             <input class="blue_button btn btn-primary bold_text17" type="submit" onclick="" value="로그인 링크 보내기">
@@ -57,4 +57,19 @@
 
   
 </body>
+
+<script>
+const CheckValue = () => {
+
+var inputValue = document.getElementById('inputValue').value;
+
+if(inputValue == ""){
+alert('정보를 입력해 주세요.')
+document.getElementById('inputValue').focus();
+return false;
+}
+}
+
+
+</script>
 </html>

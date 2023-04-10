@@ -113,7 +113,7 @@ var PaE = document.getElementById("userPaE");
 
 if(PaE.value ==""){
 alert('휴대폰 번호 또는 이메일 주소 란을 입력해 주세요.')
-document.getElementById('userPaE')
+document.getElementById('userPaE').focus();
 return false;
 }
 
@@ -124,18 +124,18 @@ var emailCheck =/^[\w.+\-]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+$/i;
 
 if(!phoneCheck.test(PaE.value) && !emailCheck.test(PaE.value)){
 alert('핸드폰 양식이나, 이메일 양식이 올바르지 않습니다.')
-document.getElementById('userPaE')
+document.getElementById('userPaE').focus();
 return false;
 }
 if(NM.value ==""){
 alert('성명 란을 입력해주세요')
-document.getElementById('User_NM')
+document.getElementById('User_NM').focus();
 return false;
 }
 
 if(ID.value ==""){
 alert('사용자 이름 란을 입력해주세요')
-document.getElementById('User_ID')
+document.getElementById('User_ID').focus();
 return false;
 }
 
@@ -144,13 +144,13 @@ var idCheck = /^[^\s~`!@#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?()\._]*$/;
 
 if(!idCheck.test(ID.value)){
 alert('사용자 이름에는 특수문자가 들어갈 수 없습니다.')
-document.getElementById('User_ID')
+document.getElementById('User_ID').focus();
 return false;
 }
 
 if(PW.value ==""){
 alert('비밀번호 란을 입력해 주세요.')
-document.getElementById('User_PW')
+document.getElementById('User_PW').focus();
 return false;
 }
 
@@ -158,7 +158,7 @@ return false;
 var pwCheck = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,16}$/;
 if(!pwCheck.test(PW.value)){
 alert('비밀번호는 영문자+숫자+특수문자 조합으로 8~16자리 사용해야 합니다.')
-document.getElementById('User_ID')
+document.getElementById('User_ID').focus();
 return false;
 }
 return true;
