@@ -69,4 +69,16 @@ class JoinController {
                     " 렸습니다.'); history.back(); </script>";
         }
     }
+
+    @PostMapping("/newPasswordSetting")
+    @ResponseBody
+    fun newPasswordSetting(@RequestParam(value = "userEmail") userEmail:String,
+                           @RequestParam(value = "newPassword") newPassword:String):String{
+
+        var passwordChange = joinService.changePassword(userEmail,newPassword)
+        if(!passwordChange){
+            return "<script>alert('비밀번호 변경 실패'); location.href='/'</script>"
+        }
+        return "<script>alert('비밀번호 변경 성공'); location.href='/main'</script>"
+    }
 }

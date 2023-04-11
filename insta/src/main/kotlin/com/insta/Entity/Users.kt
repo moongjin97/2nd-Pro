@@ -12,7 +12,7 @@ data class Users(
     @Column(name = "USER_ID")
     val userId: String,
     @Column(name = "USER_PW")
-    val userPw: String,
+    var userPw: String,
     @Column(name = "USER_NM")
     val userNm: String,
     @Column(name = "USER_PHONE")

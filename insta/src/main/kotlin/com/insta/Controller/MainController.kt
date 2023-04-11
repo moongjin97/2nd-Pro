@@ -3,34 +3,37 @@ package com.insta.Controller
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.ModelAttribute
+import org.springframework.web.bind.annotation.PathVariable
 
 @Controller
 class MainController {
     @GetMapping("/")
-    fun index(model: Model):String{
+    fun index():String{
         return "index"
     }
 
     @GetMapping("/main")
-    fun mainForm(model: Model):String{
+    fun mainForm():String{
         return "mainForm"
     }
     @GetMapping("/join")
-    fun joinForm(model: Model):String{
+    fun joinForm():String{
         return "join"
     }
 
     @GetMapping("/findPw")
-    fun findPw(model: Model):String{
+    fun findPw():String{
         return "resetPw"
     }
 
-    @GetMapping("/asd")
-    fun asd ():String{
+    @GetMapping("/pwSetting")
+    fun pwSetting():String{
         return "pwSetting"
     }
-    @GetMapping("/newPw")
-    fun newPw():String{
+    @GetMapping("/newPw/{userEmail}")
+    fun newPw(@PathVariable ("userEmail") userEmail:String, model: Model):String{
+        model.addAttribute("userEmail", userEmail)
         return "newPwSetting"
     }
 }

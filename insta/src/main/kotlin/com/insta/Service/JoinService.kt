@@ -113,13 +113,67 @@ class JoinService {
 
 
     fun sendEmail(findInfoCheck: String): Boolean {
+        var findUser = userRepository.findByUserEmail(findInfoCheck)
+        var userId = findUser.userId
+        var userEmail = findUser.userEmail
 
         try{
+
+            val htmlContent = """
+            <div class="wrap" style="margin: 100px auto; width: 450px;display: flex; flex-direction: column;">
+            <div>
+            <img src="http://drive.google.com/uc?export=view&id=1oArh9BFHw1K2Gc5dsYzs_ZQMt6JAuQeE"
+            alt="인스타그램이미지"
+            id="insta"
+            style="width: 200px; height: 50px;"
+            />
+            </div>
+            <p id="greet" style="font-size: 20px;"><span>${userId}</span>님 안녕하세요.</p>
+            <p id="content" style="font-size: 20px;">
+            Instagram 로그인과 관련하여 불편을 끼쳐 드려서 죄송합니다. 비밀번호를
+            잊으셨나요? 회원님이 로그인한것이 맞다면 지금바로 비밀번호를 재설정 할
+            수 있습니다.
+            </p>
+            <a href="http://localhost:8080/newPw/${userEmail}" style="text-decoration: none; color:white;">
+            <button id="button"
+            style="width: 100%; height: 50px;
+            background-color: #47a2ea;
+            border: solid 1px #009fdf;
+            border-radius: 3px;
+            font-size: 20px;
+            color: white;
+            font-weight: bold;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;"
+            >
+            비밀번호 재설정
+            </button>
+            </a>
+            <div id="metaDiv" style="margin-top: 50px; text-align: center; padding-bottom: 50px;">
+            <img src="http://drive.google.com/uc?export=view&id=1Max2S-mP-GpssexCdfo2obS4OYpcSqK-"
+            alt="메타이미지"
+            id="meta"
+            style="width: 60px; height: 30px;"
+            />
+            </div>
+            <div id="mataMal"
+            style="font-size: 12px; text-align: center; padding-bottom: 10px; color: #929294;">
+            © Instagram. Meta Platforms, Inc., 1601 Willow Road, Menlo Park, CA 94025
+            </div>
+            <div id="msg" style="font-size: 12px; text-align: center; padding: auto; color: #929294;">
+            이 메시지는 <span>${userEmail}</span> 주소로
+            <span>${userId}</span>님에게 전송된 메시지입니다. 회원님의 계정이 아닌가요?
+            이 계정에서 회원님의 이메일을 삭제하세요.
+            </div>
+            </div>
+            """
+
+
             val mimeMessage = javaMailSender.createMimeMessage()
             val mimeMessageHelper = MimeMessageHelper(mimeMessage, true, "UTF-8")
-            //html 파일 읽어 오기
-            val htmlFile = ClassPathResource("templates/pwSetting.html").file
-            val htmlContent = String(htmlFile.readBytes(), StandardCharsets.UTF_8)
 
             mimeMessageHelper.setTo(findInfoCheck)
             mimeMessageHelper.setFrom("mysoho2023@naver.com")
@@ -132,6 +186,23 @@ class JoinService {
             e.printStackTrace()
             return false
         }
+    }
+
+    fun changePassword(userEmail: String, newPassword: String): Boolean {
+        var UserInfo = userRepository.findByUserEmail(userEmail)
+        if(UserInfo == null){
+            return false
+        }else{
+            try{
+                var newPw = crypto(newPassword)
+                UserInfo.userPw = newPw
+                userRepository.save(UserInfo)
+            }catch (e:Exception){
+                e.printStackTrace()
+                return false
+            }
+        }
+        return true
     }
 }
 
