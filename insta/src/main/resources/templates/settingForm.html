@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <title>Title</title>
@@ -263,7 +263,7 @@ button {
                       type="text"
                       id="memberUsername"
                       placeholder="사용자 이름"
-                      value="test"
+                      th:value="${userInfo.userId}"
                     />
                     <div class="guide">
                       대부분의 경우 14일 이내에 사용자 이름을 다시
@@ -278,7 +278,7 @@ button {
                       type="text"
                       id="memberName"
                       placeholder="이름"
-                      value="테스트"
+                      th:value="${userInfo.userNm}"
                     />
                     <div class="guide">
                       사람들이 이름, 별명 또는 비즈니스 이름 등 회원님의 알려진
@@ -318,24 +318,43 @@ button {
                 <div class="sc-gyElHZ PCVYV">
                   <aside><label for="memberEmail">이메일</label></aside>
                   <div class="input-wrapper">
+                    <th:block th:if="${userInfo.userEmail} == null">
                     <input
                       type="text"
                       id="memberEmail"
                       placeholder="이메일"
-                      value=""
                     />
+                    </th:block>
+                    <th:block th:unless="${userInfo.userEmail} == null">
+                      <input
+                              type="text"
+                              id="memberEmail"
+                              placeholder="이메일"
+                              th:value="${userInfo.userEmail}"
+                      />
+                    </th:block>
                     <div class="guide"></div>
                   </div>
                 </div>
                 <div class="sc-gyElHZ PCVYV">
                   <aside><label for="memberPhone">전화번호</label></aside>
                   <div class="input-wrapper">
+                    <th:block th:if="${userInfo.userPhone} == null">
                     <input
                       type="text"
                       id="memberPhone"
                       placeholder="전화번호"
-                      value=""
+
                     />
+                    </th:block>
+                    <th:block th:unless="${userInfo.userPhone} == null">
+                      <input
+                              type="text"
+                              id="memberPhone"
+                              placeholder="전화번호"
+                              th:value="${userInfo.userPhone}"
+                      />
+                    </th:block>
                     <div class="guide"></div>
                   </div>
                 </div>

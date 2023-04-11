@@ -204,5 +204,28 @@ class JoinService {
         }
         return true
     }
+
+    fun findname(userId: String): String {
+        var username = userRepository.findByUserId(userId)
+        return username.userNm
+    }
+
+    fun findUserNumber(userId: String):Users {
+        return userRepository.findByUserId(userId)
+    }
+
+    fun userInfoDto(userInfo: Users): JoinSaveDto {
+        var joinSaveDto = JoinSaveDto(null,null,null,null,null,null,null,null,null)
+        joinSaveDto.userNo = userInfo.userNo
+        joinSaveDto.userId = userInfo.userId
+        joinSaveDto.userPw = userInfo.userPw
+        joinSaveDto.userNm = userInfo.userNm
+        joinSaveDto.userPhone = userInfo.userPhone
+        joinSaveDto.userEmail = userInfo.userEmail
+        joinSaveDto.userJoinDt = userInfo.userJoinDt
+        joinSaveDto.userDelDt = userInfo.userDelDt
+        joinSaveDto.userSt = userInfo.userSt
+        return joinSaveDto
+    }
 }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <title>Title</title>
@@ -398,15 +398,15 @@
         <div class="sc-fotOHu eQkESC">
           <main><section></section></main>
           <aside class="sc-hKwDye iHPHcZ">
-            <a class="aside-imgLink" href="/profile/test"
+            <a class="aside-imgLink" th:href="@{/settingForm/{id}(id=${session.userId})}"
               ><div type="default" scale="1" class="sc-gsDKAQ hmIrBV">
                 <img src="https://instagram-s3-dev.s3.ap-northeast-2.amazonaws.com/member/base-UUID_base.PNG.png" alt="test" /></div
             ></a>
             <div class="aside-userInfo">
               <span class="sc-dkPtRN dBqEUL aside-username"
-                ><a href="/profile/test">test</a></span
+                ><a th:href="@{/settingForm/{id}(id=${session.userId})}"><span th:text="${session.userId}">test</span></a></span
               >
-              <div class="aside-realName">테스트</div>
+              <div class="aside-realName" th:text="${session.userName}">테스트</div>
             </div>
           </aside>
         </div>

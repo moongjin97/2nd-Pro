@@ -46,6 +46,8 @@ class JoinController {
             return "<script>alert('등록되지않은 사용자 이름입니다. 회원가입을해주세요.');history.back();</script>"
         }else{
             sesstion.setAttribute("userId",loginDto.userId)
+            var userName = joinService.findname(loginDto.userId!!)
+            sesstion.setAttribute("userName",userName)
             return "<script>location.href='/main'</script>"
         }
 
@@ -81,4 +83,6 @@ class JoinController {
         }
         return "<script>alert('비밀번호 변경 성공'); location.href='/main'</script>"
     }
+
+
 }
