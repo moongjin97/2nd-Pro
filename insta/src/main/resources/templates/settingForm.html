@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <style>
         html,
         body,
@@ -398,5 +399,20 @@
         </section>
     </div>
 </div>
+<script>
+    $('li').click(function () {
+        var index = $(this).index();
+        if ($(this).hasClass('iLExqo')) {
+            if ($('li').hasClass('KtIRS')) {
+                $('li').removeClass('KtIRS');
+                $('li').addClass('iLExqo')
+            }
+            $(this).removeClass('iLExqo');
+            $(this).addClass('KtIRS');
+        }
+    })
+</script>
 </body>
 </html>
+
+
