@@ -1,0 +1,109 @@
+.zLuK {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+}
+.zLuK > svg {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}
+.zLuK > svg {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+.zLuK > div {
+    width: 855px;
+    height: 965px;
+    max-width: 857px;
+    min-width: 350px;
+    max-height: 900px;
+    min-height: 393px;
+    margin: 20px;
+    animation: 0.3s ease 0s 1 normal none running popModal;
+}
+.jQaYLF {
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 12px;
+    background-color: rgb(255, 255, 255);
+}
+.NQRkD {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 12px;
+}
+.elJnFq {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    height: 42px;
+    min-height: 42px;
+    border-bottom: 1px solid rgb(219, 219, 219);
+}
+.elJnFq > h1 {
+    font-weight: 600;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    text-align: center;
+    font-size: 16px;
+}
+.ihROgv {
+    width: 100%;
+    height: 100%;
+}
+.ihROgv > .upload__file {
+    padding: 24px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.ihROgv > .upload__file > div {
+    margin-top: 16px;
+}
+.ihROgv > .upload__file > div > h2 {
+    font-size: 22px;
+}
+.ihROgv > .upload__file > div > h2, .ihROgv > .upload__file > div > h3 {
+    font-weight: 300;
+    line-height: 26px;
+    text-align: center;
+}
+.ihROgv > .upload__file > div > h2, .ihROgv > .upload__file > div > h3 {
+    font-weight: 300;
+    line-height: 26px;
+    text-align: center;
+}
+.ihROgv > .upload__file > button {
+    margin-top: 24px;
+}
+.fhNseF {
+    border-radius: 4px;
+    padding: 5px 9px;
+    background-color: rgb(0, 149, 246);
+    color: white;
+}

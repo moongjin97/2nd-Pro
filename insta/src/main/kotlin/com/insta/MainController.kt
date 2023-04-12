@@ -28,4 +28,8 @@ class MainController {
     fun setting(model: Model):String{
         return "settingForm"
     }
+    @GetMapping("/addPost")
+    fun addPost(model: Model):String{
+        return "addPost"
+    }
 }

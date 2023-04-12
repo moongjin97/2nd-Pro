@@ -1,118 +1,250 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <header th:fragment="headerFragment">
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/main.css" />
-        <nav class="sc-gsNilK hueUZT">
-          <div class="sc-bXTejn dvsSpq">
-            <a aria-current="page" class="sc-eGRUor lmznQr active" href="/main">
-              <img
-                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM4AAAA6CAMAAADPwpb5AAAC/VBMVEUAAAAjHyAjHyD///8jICAkHyQjHyAnISFAIEAjICAkJCQkICEjHyAoIiIjHyArKyskJCQlISFVVVUjICGAgIAnISEkHyEkICElHyUkHyAuLi4jICMjICEuIyMjICEpIyNAQEAoIiIjICIlICUmISEkICEjICMkISEpKSkkICAjICElHyEzMzMlIiIkICQjICEkHyEkICEkICEkICAmIiI5OTkmJiYlICIjHyAnJycmISEoKCgjHyEkICEkJCQlHyIjICIkICAkHyEjIyMjICEkICAkHyElICAkICAkHyEkHyEkISEkHyEkJCQjICEkHyAlHyIkICEkHyAnJyckICEjHyEsISEpIiIkICEjICAkISEkICAjHyMrICskICAkISEkHyAjIyMjIyMrKyskHyAkICEkISEjICEmIiIkICQmJiYrKyskHyEjIyMjHyEkICEzMzMkHyAoICgzIiItLS0jICAkISEnIyMkHyEpISEkICAmIiIjICAkHyIkIiIkICInIyMkICAkICAjICEkHyAmJiYmICYkICEkICAkHyAkICIlICAkICAkHyIjHyEjHyAkHyAlISEkICIjICEkICAmIiIkHyEkICAkICAlIiIjICAkICEjHyElIiIkICAkHyAkISEjHyEkISEkICEkJCQkJCQkISEkISEnJycjICIlICIkHyAjISEkICEkICAkICIkICEjICAkHyEkJCQjICEkHyIkHyElISEjICAjICAjHyAlICAkHyAlISErIiIkICAkHyElICIjICEjICAlHyEkHyElISEjHyEkICElICMlISEmHyMjISEkHyEkICEkICAnIiIjHyEjICEmISEjHyEjISElICAjICEkICAjICAjICEkISEjHyEmICMjISElICAmHyIkJCQmICAkICAkHyEkICIkICEkHyQjISEkICIjISEjHyEmHyMkICAkICIjICAjICAkICAwIDAkICEkICEjHyEkISEkISEjHyEkICEkICIkICAkHyEkISEjHyBS+u4fAAAA/nRSTlMA/v0B9zH8LgjvMvn2JvUGHD4D8AIn+/Ep7AtQmRbgLAQtmDA9+EhrGb7YkgVLQNHjsOqHQwkUYeYhLxPM4ipSkLd6JOmWrG9PlPNk2yPo3lqx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"
-                alt="상단바 인스타 로고"
-                style="width: 103px; height: 29px"
-              />
-            </a>
-            <div class="sc-Galmp hUqPTq">
-              <label for="search"><div class="sc-fWCJzd iBVKZA"></div></label
-              ><input
+<body>
+<nav class="sc-gsNilK hueUZT" th:fragment="headerFragment">
+    <link rel="stylesheet" href="css/main.css"/>
+    <div class="sc-bXTejn dvsSpq">
+        <a aria-current="page" class="sc-eGRUor lmznQr active" href="/main">
+            <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM4AAAA6CAMAAADPwpb5AAAC/VBMVEUAAAAjHyAjHyD///8jICAkHyQjHyAnISFAIEAjICAkJCQkICEjHyAoIiIjHyArKyskJCQlISFVVVUjICGAgIAnISEkHyEkICElHyUkHyAuLi4jICMjICEuIyMjICEpIyNAQEAoIiIjICIlICUmISEkICEjICMkISEpKSkkICAjICElHyEzMzMlIiIkICQjICEkHyEkICEkICEkICAmIiI5OTkmJiYlICIjHyAnJycmISEoKCgjHyEkICEkJCQlHyIjICIkICAkHyEjIyMjICEkICAkHyElICAkICAkHyEkHyEkISEkHyEkJCQjICEkHyAlHyIkICEkHyAnJyckICEjHyEsISEpIiIkICEjICAkISEkICAjHyMrICskICAkISEkHyAjIyMjIyMrKyskHyAkICEkISEjICEmIiIkICQmJiYrKyskHyEjIyMjHyEkICEzMzMkHyAoICgzIiItLS0jICAkISEnIyMkHyEpISEkICAmIiIjICAkHyIkIiIkICInIyMkICAkICAjICEkHyAmJiYmICYkICEkICAkHyAkICIlICAkICAkHyIjHyEjHyAkHyAlISEkICIjICEkICAmIiIkHyEkICAkICAlIiIjICAkICEjHyElIiIkICAkHyAkISEjHyEkISEkICEkJCQkJCQkISEkISEnJycjICIlICIkHyAjISEkICEkICAkICIkICEjICAkHyEkJCQjICEkHyIkHyElISEjICAjICAjHyAlICAkHyAlISErIiIkICAkHyElICIjICEjICAlHyEkHyElISEjHyEkICElICMlISEmHyMjISEkHyEkICEkICAnIiIjHyEjICEmISEjHyEjISElICAjICEkICAjICAjICEkISEjHyEmICMjISElICAmHyIkJCQmICAkICAkHyEkICIkICEkHyQjISEkICIjISEjHyEmHyMkICAkICIjICAjICAkICAwIDAkICEkICEjHyEkISEkISEjHyEkICEkICIkICAkHyEkISEjHyBS+u4fAAAA/nRSTlMA/v0B9zH8LgjvMvn2JvUGHD4D8AIn+/Ep7AtQmRbgLAQtmDA9+EhrGb7YkgVLQNHjsOqHQwkUYeYhLxPM4ipSkLd6JOmWrG9PlPNk2yPo3lqx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"
+                    alt="상단바 인스타 로고"
+                    style="width: 103px; height: 29px"
+            />
+        </a>
+        <div class="sc-Galmp hUqPTq">
+            <label for="search">
+                <div class="sc-fWCJzd iBVKZA"></div>
+            </label
+            ><input
                 id="search"
                 class="search-bar"
                 type="text"
                 placeholder="검색"
                 value=""
-              />
-            </div>
-            <div class="sc-jQrDum jjOSBS">
-              <div class="sc-fvxzrP dRurqJ">
+        />
+        </div>
+        <div class="sc-jQrDum jjOSBS">
+            <div class="sc-fvxzrP dRurqJ">
                 <div class="sc-fbyfCU hpFGhX">
-                  <a aria-current="page" class="active" href="/main"
-                    ><svg
-                      aria-label="\uD648"
-                      class="_8-yf5"
-                      color="#262626"
-                      fill="#262626"
-                      height="22"
-                      role="img"
-                      viewBox="0 0 48 48"
-                      width="22"
+                    <a aria-current="page" class="active" href="/main"
                     >
-                      <path
-                        d="M45.3 48H30c-.8 0-1.5-.7-1.5-1.5V34.2c0-2.6-2-4.6-4.6-4.6s-4.6 2-4.6 4.6v12.3c0 .8-.7 1.5-1.5 1.5H2.5c-.8 0-1.5-.7-1.5-1.5V23c0-.4.2-.8.4-1.1L22.9.4c.6-.6 1.5-.6 2.1 0l21.5 21.5c.4.4.6 1.1.3 1.6 0 .1-.1.1-.1.2v22.8c.1.8-.6 1.5-1.4 1.5zm-13.8-3h12.3V23.4L24 3.6l-20 20V45h12.3V34.2c0-4.3 3.3-7.6 7.6-7.6s7.6 3.3 7.6 7.6V45z"
-                      ></path></svg
-                  ></a>
+                        <svg
+                                aria-label="\uD648"
+                                class="_8-yf5"
+                                color="#262626"
+                                fill="#262626"
+                                height="22"
+                                role="img"
+                                viewBox="0 0 48 48"
+                                width="22"
+                        >
+                            <path
+                                    d="M45.3 48H30c-.8 0-1.5-.7-1.5-1.5V34.2c0-2.6-2-4.6-4.6-4.6s-4.6 2-4.6 4.6v12.3c0 .8-.7 1.5-1.5 1.5H2.5c-.8 0-1.5-.7-1.5-1.5V23c0-.4.2-.8.4-1.1L22.9.4c.6-.6 1.5-.6 2.1 0l21.5 21.5c.4.4.6 1.1.3 1.6 0 .1-.1.1-.1.2v22.8c.1.8-.6 1.5-1.4 1.5zm-13.8-3h12.3V23.4L24 3.6l-20 20V45h12.3V34.2c0-4.3 3.3-7.6 7.6-7.6s7.6 3.3 7.6 7.6V45z"
+                            ></path>
+                        </svg
+                        >
+                    </a>
                 </div>
                 <div class="sc-fbyfCU hpFGhX">
-                  <a href="/direct"
-                    ><svg
-                      aria-label="Direct"
-                      fill="#262626"
-                      height="22"
-                      role="img"
-                      viewBox="0 0 48 48"
-                      width="22"
+                    <a href="/direct"
                     >
-                      <path
-                        d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"
-                      ></path></svg
-                  ></a>
+                        <svg
+                                aria-label="Direct"
+                                fill="#262626"
+                                height="22"
+                                role="img"
+                                viewBox="0 0 48 48"
+                                width="22"
+                        >
+                            <path
+                                    d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"
+                            ></path>
+                        </svg
+                        >
+                    </a>
                 </div>
                 <div class="sc-fbyfCU hpFGhX">
-                  <a data-toggle="modal" href="/setting">
-                    <svg
-                      aria-label="\uC0C8\uB85C\uC6B4 \uAC8C\uC2DC\uBB3C"
-                      color="#262626"
-                      fill="#262626"
-                      height="22"
-                      role="img"
-                      viewBox="0 0 48 48"
-                      width="22"
-                    >
-                      <path
-                        d="M31.8 48H16.2c-6.6 0-9.6-1.6-12.1-4C1.6 41.4 0 38.4 0 31.8V16.2C0 9.6 1.6 6.6 4 4.1 6.6 1.6 9.6 0 16.2 0h15.6c6.6 0 9.6 1.6 12.1 4C46.4 6.6 48 9.6 48 16.2v15.6c0 6.6-1.6 9.6-4 12.1-2.6 2.5-5.6 4.1-12.2 4.1zM16.2 3C10 3 7.8 4.6 6.1 6.2 4.6 7.8 3 10 3 16.2v15.6c0 6.2 1.6 8.4 3.2 10.1 1.6 1.6 3.8 3.1 10 3.1h15.6c6.2 0 8.4-1.6 10.1-3.2 1.6-1.6 3.1-3.8 3.1-10V16.2c0-6.2-1.6-8.4-3.2-10.1C40.2 4.6 38 3 31.8 3H16.2z"
-                      ></path>
-                      <path
-                        d="M36.3 25.5H11.7c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5h24.6c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5z"
-                      ></path>
-                      <path
-                        d="M24 37.8c-.8 0-1.5-.7-1.5-1.5V11.7c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v24.6c0 .8-.7 1.5-1.5 1.5z"
-                      ></path>
-                    </svg>
-                  </a>
+                    <a id="add-post">
+                        <svg
+                                aria-label="\uC0C8\uB85C\uC6B4 \uAC8C\uC2DC\uBB3C"
+                                color="#262626"
+                                fill="#262626"
+                                height="22"
+                                role="img"
+                                viewBox="0 0 48 48"
+                                width="22"
+                                id="before-icon"
+                                style="display: block"
+                        >
+                            <path
+                                    d="M31.8 48H16.2c-6.6 0-9.6-1.6-12.1-4C1.6 41.4 0 38.4 0 31.8V16.2C0 9.6 1.6 6.6 4 4.1 6.6 1.6 9.6 0 16.2 0h15.6c6.6 0 9.6 1.6 12.1 4C46.4 6.6 48 9.6 48 16.2v15.6c0 6.6-1.6 9.6-4 12.1-2.6 2.5-5.6 4.1-12.2 4.1zM16.2 3C10 3 7.8 4.6 6.1 6.2 4.6 7.8 3 10 3 16.2v15.6c0 6.2 1.6 8.4 3.2 10.1 1.6 1.6 3.8 3.1 10 3.1h15.6c6.2 0 8.4-1.6 10.1-3.2 1.6-1.6 3.1-3.8 3.1-10V16.2c0-6.2-1.6-8.4-3.2-10.1C40.2 4.6 38 3 31.8 3H16.2z"
+                            ></path>
+                            <path
+                                    d="M36.3 25.5H11.7c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5h24.6c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5z"
+                            ></path>
+                            <path
+                                    d="M24 37.8c-.8 0-1.5-.7-1.5-1.5V11.7c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v24.6c0 .8-.7 1.5-1.5 1.5z"
+                            ></path>
+                        </svg>
+                        <svg aria-label="\uC0C8\uB85C\uC6B4 \uAC8C\uC2DC\uBB3C" class="_8-yf5 " color="#262626"
+                             fill="#262626" height="22" role="img" viewBox="0 0 48 48" width="22" id="after-icon" style="display: none">
+                            <path d="M43.9 4c-2.5-2.4-5.5-4-12.2-4H16.2C9.6 0 6.6 1.6 4 4.1 1.6 6.6 0 9.6 0 16.2v15.5c0 6.6 1.6 9.7 4.1 12.2 2.5 2.4 5.5 4 12.2 4h15.5c6.6 0 9.7-1.6 12.2-4.1 2.4-2.5 4-5.5 4-12.2V16.2c0-6.6-1.6-9.6-4.1-12.2zm-7.6 21.5H25.5v10.8c0 .8-.7 1.5-1.5 1.5s-1.5-.7-1.5-1.5V25.5H11.7c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5h10.8V11.7c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v10.8h10.8c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5z"></path>
+                        </svg>
+                    </a>
                 </div>
                 <div class="sc-fbyfCU hpFGhX">
-                  <a aria-current="page" class="active" href="/"
-                    ><svg
-                      aria-label="\uD65C\uB3D9 \uD53C\uB4DC"
-                      color="#262626"
-                      fill="#262626"
-                      height="22"
-                      role="img"
-                      viewBox="0 0 48 48"
-                      width="22"
+                    <a aria-current="page" class="active" href="/"
                     >
-                      <path
-                        d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
-                      ></path></svg
-                  ></a>
+                        <svg
+                                aria-label="\uD65C\uB3D9 \uD53C\uB4DC"
+                                color="#262626"
+                                fill="#262626"
+                                height="22"
+                                role="img"
+                                viewBox="0 0 48 48"
+                                width="22"
+                        >
+                            <path
+                                    d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
+                            ></path>
+                        </svg
+                        >
+                    </a>
                 </div>
                 <div class="sc-fbyfCU sc-GEbAx hpFGhX dxJuXB">
-                  <div class="profile">
-                    <div class="img-container">
-                      <img
-                        alt="minsoo_web님의 프로필 사진"
-                        data-testid="user-avatar"
-                        draggable="false"
-                        src="https://instagram-s3-dev.s3.ap-northeast-2.amazonaws.com/member/base-UUID_base.PNG.png"
-                      />
+                    <div id="myProfile" class="profile">
+                        <div class="img-container">
+                            <img
+                                    alt="minsoo_web님의 프로필 사진"
+                                    data-testid="user-avatar"
+                                    draggable="false"
+                                    src="https://instagram-s3-dev.s3.ap-northeast-2.amazonaws.com/member/base-UUID_base.PNG.png"
+                            />
+                        </div>
+                        <div class="sc-jUosCB dCDHbO" id="profileMenu" style="display: none">
+                            <div class="pointer"></div>
+                            <div class="settings"><a href="/profile/test">
+                                <div class="option">
+                                    <div class="svg">
+                                        <svg aria-label="\uD504\uB85C\uD544" class="_ab6-" color="#262626"
+                                             fill="#262626" height="16" role="img" viewBox="0 0 24 24" width="16">
+                                            <circle cx="12.004" cy="12.004" fill="none" r="10.5" stroke="currentColor"
+                                                    stroke-linecap="round" stroke-miterlimit="10"
+                                                    stroke-width="2"></circle>
+                                            <path d="M18.793 20.014a6.08 6.08 0 00-1.778-2.447 3.991 3.991 0 00-2.386-.791H9.38a3.994 3.994 0 00-2.386.791 6.09 6.09 0 00-1.779 2.447"
+                                                  fill="none" stroke="currentColor" stroke-linecap="round"
+                                                  stroke-miterlimit="10" stroke-width="2"></path>
+                                            <circle cx="12.006" cy="9.718" fill="none" r="4.109" stroke="currentColor"
+                                                    stroke-linecap="round" stroke-miterlimit="10"
+                                                    stroke-width="2"></circle>
+                                        </svg>
+                                    </div>
+                                    <span>프로필</span></div>
+                            </a>
+                                <div class="option">
+                                    <div class="svg">
+                                        <svg aria-label="\uC800\uC7A5\uB428" class="_ab6-" color="#262626"
+                                             fill="#262626" height="16" role="img" viewBox="0 0 24 24" width="16">
+                                            <polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21"
+                                                     stroke="currentColor" stroke-linecap="round"
+                                                     stroke-linejoin="round" stroke-width="2"></polygon>
+                                        </svg>
+                                    </div>
+                                    <span>저장됨</span></div>
+                                <a href="/accounts/edit">
+                                    <div class="option">
+                                        <div class="svg">
+                                            <svg aria-label="\uC124\uC815" class="_ab6-" color="#262626" fill="#262626"
+                                                 height="16" role="img" viewBox="0 0 24 24" width="16">
+                                                <circle cx="12" cy="12" fill="none" r="8.635" stroke="currentColor"
+                                                        stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"></circle>
+                                                <path d="M14.232 3.656a1.269 1.269 0 01-.796-.66L12.93 2h-1.86l-.505.996a1.269 1.269 0 01-.796.66m-.001 16.688a1.269 1.269 0 01.796.66l.505.996h1.862l.505-.996a1.269 1.269 0 01.796-.66M3.656 9.768a1.269 1.269 0 01-.66.796L2 11.07v1.862l.996.505a1.269 1.269 0 01.66.796m16.688-.001a1.269 1.269 0 01.66-.796L22 12.93v-1.86l-.996-.505a1.269 1.269 0 01-.66-.796M7.678 4.522a1.269 1.269 0 01-1.03.096l-1.06-.348L4.27 5.587l.348 1.062a1.269 1.269 0 01-.096 1.03m11.8 11.799a1.269 1.269 0 011.03-.096l1.06.348 1.318-1.317-.348-1.062a1.269 1.269 0 01.096-1.03m-14.956.001a1.269 1.269 0 01.096 1.03l-.348 1.06 1.317 1.318 1.062-.348a1.269 1.269 0 011.03.096m11.799-11.8a1.269 1.269 0 01-.096-1.03l.348-1.06-1.317-1.318-1.062.348a1.269 1.269 0 01-1.03-.096"
+                                                      fill="none" stroke="currentColor" stroke-linejoin="round"
+                                                      stroke-width="2"></path>
+                                            </svg>
+                                        </div>
+                                        <span>설정</span></div>
+                                </a>
+                                <div class="option">
+                                    <div class="svg">
+                                        <svg aria-label="\uACC4\uC815 \uC804\uD658" class="_ab6-" color="#262626"
+                                             fill="#262626" height="16" role="img" viewBox="0 0 24 24" width="16">
+                                            <path d="M8 8.363a1 1 0 00-1-1H4.31a8.977 8.977 0 0114.054-1.727 1 1 0 101.414-1.414A11.003 11.003 0 003 5.672V3.363a1 1 0 10-2 0v5a1 1 0 001 1h5a1 1 0 001-1zm14 6.274h-5a1 1 0 000 2h2.69a8.977 8.977 0 01-14.054 1.727 1 1 0 00-1.414 1.414A11.004 11.004 0 0021 18.33v2.307a1 1 0 002 0v-5a1 1 0 00-1-1z"></path>
+                                        </svg>
+                                    </div>
+                                    <span>계정전환</span></div>
+                                <hr>
+                                <span class="option">로그아웃</span></div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </nav>
-        <div class="sc-ctqQKy fzSJhJ"></div>
-        <div class="sc-fotOHu eQkESC"></div>
-  </header>
+        </div>
+    </div>
+    <div id="modal-root" class="modal" style="display: none">
+        <div width="855" height="965" class="sc-iwjdpV zLuK">
+            <svg class="close-modal" aria-label="\uB2EB\uAE30" color="#ffffff" fill="#ffffff" height="24" role="img" viewBox="0 0 24 24"
+                 width="24">
+                <polyline fill="none" points="20.643 3.357 12 12 3.353 20.647" stroke="currentColor" stroke-linecap="round"
+                          stroke-linejoin="round" stroke-width="3"></polyline>
+                <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                      x1="20.649" x2="3.354" y1="20.649" y2="3.354"></line>
+            </svg>
+            <div radius="12" class="sc-gKclnd jQaYLF">
+                <div class="sc-cZMNgc NQRkD">
+                    <header class="sc-dvQaRk elJnFq"><h1>새 게시물 만들기</h1></header>
+
+                    <div class="sc-jIkXHa ihROgv">
+                        <div class="upload__file ">
+                            <svg aria-label="\uC774\uBBF8\uC9C0\uB098 \uB3D9\uC601\uC0C1\uACFC \uAC19\uC740 \uBBF8\uB514\uC5B4\uB97C \uB098\uD0C0\uB0B4\uB294 \uC544\uC774\uCF58"
+                                 color="#262626" fill="#262626" height="77" role="img" viewBox="0 0 97.6 77.3" width="96">
+                                <path d="M16.3 24h.3c2.8-.2 4.9-2.6 4.8-5.4-.2-2.8-2.6-4.9-5.4-4.8s-4.9 2.6-4.8 5.4c.1 2.7 2.4 4.8 5.1 4.8zm-2.4-7.2c.5-.6 1.3-1 2.1-1h.2c1.7 0 3.1 1.4 3.1 3.1 0 1.7-1.4 3.1-3.1 3.1-1.7 0-3.1-1.4-3.1-3.1 0-.8.3-1.5.8-2.1z"
+                                      fill="currentColor"></path>
+                                <path d="M84.7 18.4L58 16.9l-.2-3c-.3-5.7-5.2-10.1-11-9.8L12.9 6c-5.7.3-10.1 5.3-9.8 11L5 51v.8c.7 5.2 5.1 9.1 10.3 9.1h.6l21.7-1.2v.6c-.3 5.7 4 10.7 9.8 11l34 2h.6c5.5 0 10.1-4.3 10.4-9.8l2-34c.4-5.8-4-10.7-9.7-11.1zM7.2 10.8C8.7 9.1 10.8 8.1 13 8l34-1.9c4.6-.3 8.6 3.3 8.9 7.9l.2 2.8-5.3-.3c-5.7-.3-10.7 4-11 9.8l-.6 9.5-9.5 10.7c-.2.3-.6.4-1 .5-.4 0-.7-.1-1-.4l-7.8-7c-1.4-1.3-3.5-1.1-4.8.3L7 49 5.2 17c-.2-2.3.6-4.5 2-6.2zm8.7 48c-4.3.2-8.1-2.8-8.8-7.1l9.4-10.5c.2-.3.6-.4 1-.5.4 0 .7.1 1 .4l7.8 7c.7.6 1.6.9 2.5.9.9 0 1.7-.5 2.3-1.1l7.8-8.8-1.1 18.6-21.9 1.1zm76.5-29.5l-2 34c-.3 4.6-4.3 8.2-8.9 7.9l-34-2c-4.6-.3-8.2-4.3-7.9-8.9l2-34c.3-4.4 3.9-7.9 8.4-7.9h.5l34 2c4.7.3 8.2 4.3 7.9 8.9z"
+                                      fill="currentColor"></path>
+                                <path d="M78.2 41.6L61.3 30.5c-2.1-1.4-4.9-.8-6.2 1.3-.4.7-.7 1.4-.7 2.2l-1.2 20.1c-.1 2.5 1.7 4.6 4.2 4.8h.3c.7 0 1.4-.2 2-.5l18-9c2.2-1.1 3.1-3.8 2-6-.4-.7-.9-1.3-1.5-1.8zm-1.4 6l-18 9c-.4.2-.8.3-1.3.3-.4 0-.9-.2-1.2-.4-.7-.5-1.2-1.3-1.1-2.2l1.2-20.1c.1-.9.6-1.7 1.4-2.1.8-.4 1.7-.3 2.5.1L77 43.3c1.2.8 1.5 2.3.7 3.4-.2.4-.5.7-.9.9z"
+                                      fill="currentColor"></path>
+                            </svg>
+                            <div><h2>사진을 여기 끌어다 놓으세요</h2>
+                                <h3>최대 10개의 사진을 업로드할 수 있습니다</h3></div>
+                            <button type="button" radius="4" color="white" class="sc-bBHHxi fhNseF">컴퓨터에서 선택</button>
+                        </div>
+                        <form enctype="multipart/form-data" method="POST" role="presentation"><input
+                                accept="image/jpeg,image/png,image/heic,image/heif" multiple="" type="file"></form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        const myProfile = document.getElementById('myProfile');
+        const profileMenu = document.getElementById('profileMenu')
+        myProfile.addEventListener('click', () => {
+            if (profileMenu.style.display === 'none') {
+                profileMenu.style.display = 'block';
+            } else {
+                profileMenu.style.display = 'none';
+            }
+        });
+        const modal = document.getElementById('modal-root');
+        const btnOpenPopup = document.getElementById('add-post');
+        const beforeIcon = document.getElementById('before-icon');
+        const afterIcon = document.getElementById('after-icon');
+
+
+        btnOpenPopup.addEventListener('click', () => {
+            beforeIcon.style.display = 'none';
+            afterIcon.style.display = 'block';
+            modal.style.display = 'block';
+        });
+        const closeBtn = modal.querySelector(".close-modal");
+        closeBtn.addEventListener("click", e => {
+            afterIcon.style.display = 'none';
+            beforeIcon.style.display = 'block';
+            modal.style.display = 'none';
+        })
+    </script>
+</nav>
+</body>
 </html>
