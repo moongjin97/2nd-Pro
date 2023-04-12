@@ -36,6 +36,11 @@ class MainController (private val joinService: JoinService){
     fun pwSetting():String{
         return "pwSetting"
     }
+
+    @GetMapping("/profile")
+    fun profile():String{
+        return "profile"
+    }
     @GetMapping("/newPw/{userEmail}")
     fun newPw(@PathVariable ("userEmail") userEmail:String, model: Model):String{
         model.addAttribute("userEmail", userEmail)
