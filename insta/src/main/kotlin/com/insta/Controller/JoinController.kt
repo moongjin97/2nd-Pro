@@ -8,6 +8,7 @@ import com.insta.Repository.UserRepository
 import com.insta.Service.JoinService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestParam
@@ -84,6 +85,20 @@ class JoinController {
         }
         return "<script>alert('비밀번호 변경 성공'); location.href='/main'</script>"
     }
+    @PostMapping("/updateUserinfo")
+    @ResponseBody
+    fun updateUserinfo(@ModelAttribute joinSaveDto: JoinSaveDto):String{
 
+        var updateResult = joinService.update(joinSaveDto)
+        if(!updateResult)
+            return "<script>alert('정보 변경에 실패했습니다.');history.back();</script>"
+        return "<script>alert('정보가 변경되었습니다.'); location.href='/main'</script>"
+    }
 
+    @GetMapping("/logout")
+    @ResponseBody
+    fun logout(session: HttpSession):String{
+        session.invalidate()
+        return "<script>alert('로그아웃 되었습니다.');location.href='/'</script>"
+    }
 }

@@ -7,7 +7,11 @@ CREATE TABLE USERS (
                        USER_NM	VARCHAR(30) NOT NULL,							-- 회원이름
                        USER_PHONE VARCHAR(20),									-- 회원핸드폰
                        USER_EMAIL VARCHAR(20),									-- 회원이메일
+                       USER_INTRO VARCHAR(255),									-- 회원 소개
                        JOIN_DT DATETIME NOT NULL DEFAULT NOW(),				-- 가입일
                        DEL_DT DATETIME,										-- 탈퇴일
                        USER_ST VARCHAR(5)										-- 회원상태
 );
+
+DROP TABLE users;
+SELECT * FROM USERS;

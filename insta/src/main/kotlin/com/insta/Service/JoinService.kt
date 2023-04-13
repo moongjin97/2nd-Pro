@@ -34,7 +34,7 @@ class JoinService {
 
     fun saveJoin (joinFirstDto: JoinFirstDto):Boolean{
         println(joinFirstDto.toString())
-        var joinSaveDto = JoinSaveDto(null,null,null,null,null,null,null,null,null)
+        var joinSaveDto = JoinSaveDto(null,null,null,null,null,null,null,null,null,null)
         val PaE = joinFirstDto.userPaE
         println(" 나온값 ${PaE}")
 
@@ -215,17 +215,31 @@ class JoinService {
     }
 
     fun userInfoDto(userInfo: Users): JoinSaveDto {
-        var joinSaveDto = JoinSaveDto(null,null,null,null,null,null,null,null,null)
+        var joinSaveDto = JoinSaveDto(null,null,null,null,null,null,null,null,null,null)
         joinSaveDto.userNo = userInfo.userNo
         joinSaveDto.userId = userInfo.userId
         joinSaveDto.userPw = userInfo.userPw
         joinSaveDto.userNm = userInfo.userNm
         joinSaveDto.userPhone = userInfo.userPhone
         joinSaveDto.userEmail = userInfo.userEmail
+        joinSaveDto.userIntro = userInfo.userIntro
         joinSaveDto.userJoinDt = userInfo.userJoinDt
         joinSaveDto.userDelDt = userInfo.userDelDt
         joinSaveDto.userSt = userInfo.userSt
         return joinSaveDto
+    }
+
+    fun update(joinSaveDto: JoinSaveDto): Boolean {
+
+       var password = crypto(joinSaveDto.userPw.toString())
+        joinSaveDto.userPw = password
+        try{
+            userRepository.save(joinSaveDto.toUpdateEntity())
+        }catch (e:Exception){
+            e.printStackTrace()
+            return false
+        }
+        return true
     }
 }
 

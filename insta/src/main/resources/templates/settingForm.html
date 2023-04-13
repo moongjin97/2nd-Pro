@@ -34,6 +34,11 @@
     <section>
       <div class="sc-fmciRz hKEAti">
         <div class="sc-gjNHFA jsKhAx">
+
+          <form action="/updateUserinfo" method="post">
+            <input type="hidden" name="userNo" th:value="${userInfo.userNo}">
+            <input type="hidden" name="userPw" th:value="${userInfo.userPw}">
+<!--            <input type="hidden" name="userJoinDt" th:value="${userInfo.userJoinDt}">-->
           <div class="profile">
             <img
                     src="https://instagram-s3-dev.s3.ap-northeast-2.amazonaws.com/member/base-UUID_base.PNG.png"
@@ -53,7 +58,8 @@
                         type="text"
                         id="memberUsername"
                         placeholder="사용자 이름"
-                        value="test"
+                        th:value = "${userInfo.userId}"
+                        name="userId"
                 />
                 <div class="guide">
                   대부분의 경우 14일 이내에 사용자 이름을 다시
@@ -68,7 +74,8 @@
                         type="text"
                         id="memberName"
                         placeholder="이름"
-                        value="테스트"
+                        th:value = "${userInfo.userNm}"
+                        name="userNm"
                 />
                 <div class="guide">
                   사람들이 이름, 별명 또는 비즈니스 이름 등 회원님의 알려진
@@ -92,12 +99,23 @@
             <div class="sc-gyElHZ PCVYV">
               <aside><label for="memberIntroduce">소개</label></aside>
               <div class="input-wrapper">
-                <input
-                        type="text"
-                        id="memberIntroduce"
-                        placeholder="소개"
-                        value=""
-                />
+                <th:block th:if="${userInfo.userIntro eq null}">
+                  <input
+                          type="text"
+                          id="memberIntroduce"
+                          placeholder="소개"
+                          name="userIntro"
+                  />
+                </th:block>
+                <th:block th:unless="${userInfo.userIntro eq null}">
+                  <input
+                          type="text"
+                          id="memberIntroduce"
+                          placeholder="소개"
+                          th:value = "${userInfo.userIntro}"
+                          name="userIntro"
+                  />
+                </th:block>
                 <div class="guide">
                   개인정보 비즈니스나 반려동물 등에 사용된 계정인 경우에도
                   회원님의 개인정보를 입력하세요. 공개 프로필에는 포함되지
@@ -108,24 +126,48 @@
             <div class="sc-gyElHZ PCVYV">
               <aside><label for="memberEmail">이메일</label></aside>
               <div class="input-wrapper">
-                <input
-                        type="text"
-                        id="memberEmail"
-                        placeholder="이메일"
-                        value=""
-                />
+                <th:block th:if="${userInfo.userEmail eq null}">
+                  <input
+                          type="text"
+                          id="memberEmail"
+                          placeholder="이메일"
+                          name="userEmail"
+
+                  />
+                </th:block>
+                <th:block th:unless="${userInfo.userEmail eq null}">
+                  <input
+                          type="text"
+                          id="memberEmail"
+                          placeholder="이메일"
+                          th:value = "${userInfo.userEmail}"
+                          name="userEmail"
+                  />
+                </th:block>
                 <div class="guide"></div>
               </div>
+
             </div>
             <div class="sc-gyElHZ PCVYV">
               <aside><label for="memberPhone">전화번호</label></aside>
               <div class="input-wrapper">
-                <input
-                        type="text"
-                        id="memberPhone"
-                        placeholder="전화번호"
-                        value=""
-                />
+                <th:block th:if="${userInfo.userPhone eq null}">
+                  <input
+                          type="text"
+                          id="memberPhone"
+                          placeholder="전화번호"
+                          name="userPhone"
+                  />
+                </th:block>
+                <th:block th:unless="${userInfo.userPhone eq null}">
+                  <input
+                          type="text"
+                          id="memberPhone"
+                          placeholder="전화번호"
+                          th:value="${userInfo.userPhone}"
+                          name="userPhone"
+                  />
+                </th:block>
                 <div class="guide"></div>
               </div>
             </div>
@@ -142,11 +184,12 @@
               </div>
             </div>
           </div>
-          <div class="button-wrapper">
+          <div class="button-wrapper btn1">
             <button color="#fff" radius="4" class="sc-bBHHxi dKHdxX">
               제출
             </button>
           </div>
+          </form>
         </div>
       </div>
     </section>
@@ -166,6 +209,10 @@
   })
 </script>
 </body>
+<style>
+  .btn1{
+    text-align: center;
+  }
+</style>
 </html>
-
 

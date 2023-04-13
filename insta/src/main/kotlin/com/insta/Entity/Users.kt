@@ -1,5 +1,6 @@
 package com.insta.Entity
 
+import org.hibernate.annotations.CreationTimestamp
 import java.time.LocalDateTime
 import javax.persistence.*
 
@@ -19,8 +20,11 @@ data class Users(
     val userPhone: String?,
     @Column(name = "USER_EMAIL")
     val userEmail: String?,
-    @Column(name = "JOIN_DT")
-    val userJoinDt: LocalDateTime,
+    @Column(name = "USER_INTRO")
+    val userIntro: String?,
+    @CreationTimestamp
+    @Column(updatable = false,name = "JOIN_DT")
+    val userJoinDt: LocalDateTime?,
     @Column(name = "DEL_DT")
     val userDelDt: LocalDateTime?,
     @Column(name = "USER_ST")

@@ -150,7 +150,7 @@
                                         </svg>
                                     </div>
                                     <span>저장됨</span></div>
-                                <a href="/accounts/edit">
+                                <a th:href="@{/settingForm/{id}(id=${session.userId})}">
                                     <div class="option">
                                         <div class="svg">
                                             <svg aria-label="\uC124\uC815" class="_ab6-" color="#262626" fill="#262626"
@@ -174,7 +174,7 @@
                                     </div>
                                     <span>계정전환</span></div>
                                 <hr>
-                                <span class="option">로그아웃</span></div>
+                                <a href="/logout"><span class="option">로그아웃</span></a></div>
                         </div>
                     </div>
                 </div>
