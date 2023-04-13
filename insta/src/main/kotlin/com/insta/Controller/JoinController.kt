@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseBody
+import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpSession
 
 
@@ -37,7 +38,7 @@ class JoinController {
     @PostMapping("/login")
     @ResponseBody
     fun login(@ModelAttribute loginDto: LoginDto,
-               sesstion: HttpSession):String {
+               session: HttpSession):String {
 
         var loginResult = joinService.login(loginDto)
         if(loginResult == 1){
@@ -45,9 +46,9 @@ class JoinController {
         }else if(loginResult == 2){
             return "<script>alert('등록되지않은 사용자 이름입니다. 회원가입을해주세요.');history.back();</script>"
         }else{
-            sesstion.setAttribute("userId",loginDto.userId)
+            session.setAttribute("userId",loginDto.userId)
             var userName = joinService.findname(loginDto.userId!!)
-            sesstion.setAttribute("userName",userName)
+            session.setAttribute("userName",userName)
             return "<script>location.href='/main'</script>"
         }
 
