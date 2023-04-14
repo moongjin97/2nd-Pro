@@ -70,6 +70,7 @@ class JoinService {
     fun login(loginDto: LoginDto): Int {
 
         var loginCheck = userRepository.findByUserId(loginDto.userId.toString())
+        println("로그인체크값${loginCheck}")
         var loginDtoUserPw = crypto(loginDto.userPw.toString())
         if(loginCheck != null){
           if(loginCheck.userPw.equals(loginDtoUserPw)){

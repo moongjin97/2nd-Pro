@@ -43,7 +43,7 @@ class JoinController {
 
         var loginResult = joinService.login(loginDto)
         if(loginResult == 1){
-            return "<script>alert('비밀번호가 일치하지 않습니다.');history.back();</script>"
+            return "<script>alert('비밀번호가 일치하지 않습니다.'); history.back();</script>"
         }else if(loginResult == 2){
             return "<script>alert('등록되지않은 사용자 이름입니다. 회원가입을해주세요.');history.back();</script>"
         }else{

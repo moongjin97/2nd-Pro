@@ -1,0 +1,62 @@
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/newPwSetting.css" />
+  <title>Document</title>
+</head>
+<body>
+<div class="wrap">
+  <div class="box">
+    <p class="p1">보안 수준이 높은 비밀번호 만들기</p>
+
+    <div class="inDiv1">
+      <p>
+        비밀번호는 8글자 이상,16이하 이어야 하고, 영문,숫자를 포함해야
+        합니다. 공백은 포함할 수 없습니다.
+      </p>
+    </div>
+    <form action="/newPasswordSetting" method="post" onsubmit="return CheckValue()">
+      <input type="hidden" name="userEmail" th:value="${userEmail}">
+    <div class="inDiv2">
+      <input type="password" placeholder="새 비밀번호" name="newPassword" id="newPassword"/>
+    </div>
+    <div class="inDiv3">
+      <input type="password" placeholder="비밀번호 다시 입력" name="newPassword2" id="newPassword2"/>
+    </div>
+    <div class="inDiv4">
+      <button>비밀번호 재설정</button>
+    </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>
+<script>
+  const CheckValue = () => {
+  var newPassword = document.getElementById("newPassword");
+  var newPassword2 = document.getElementById("newPassword2");
+
+  if(newPassword.value ==""){
+  alert('새 비밀번호 란을 입력해 주세요.')
+  document.getElementById('newPassword').focus();
+  return false;
+  }
+  // 비밀번호 정규식 8~16자리 영문+숫자
+  var pwCheck = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,16}$/;
+
+  if(!pwCheck.test(newPassword.value)){
+  alert('비밀번호는 영문자+숫자+특수문자 조합으로 8~16자리 사용해야 합니다.');
+  document.getElementById('newPassword').focus();
+  return false;
+  }
+
+  if(newPassword.value != newPassword2.value){
+  alert('새비밀번호 란과 비밀번호 다시 입력 란이 일치하지 않습니다.');
+  document.getElementById('newPassword2').focus();
+  return false;
+  }
+  return true;
+  };
+</script>
