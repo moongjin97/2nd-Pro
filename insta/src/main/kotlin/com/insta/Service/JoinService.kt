@@ -5,9 +5,12 @@ import com.insta.Dto.JoinSaveDto
 import com.insta.Dto.LoginDto
 import com.insta.Entity.Users
 import com.insta.Repository.UserRepository
+import lombok.RequiredArgsConstructor
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.core.io.ByteArrayResource
 import org.springframework.core.io.ClassPathResource
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.mail.javamail.JavaMailSender
 import org.springframework.mail.javamail.MimeMessageHelper
 import org.springframework.stereotype.Service
@@ -16,14 +19,15 @@ import java.security.MessageDigest
 import javax.mail.internet.MimeMessage
 
 @Service
-class JoinService {
+class JoinService (){
 
     @Autowired
-    lateinit var userRepository: UserRepository
+    lateinit var  userRepository: UserRepository
     @Autowired
-    lateinit var javaMailSender: JavaMailSender
+    lateinit var  javaMailSender: JavaMailSender
 
     //비밀번호 암호화 펑션 SHA-256 버전
+
     fun crypto(ss:String):String{
         val sha = MessageDigest.getInstance("SHA-256")
         val hexa = sha.digest(ss.toByteArray())
@@ -240,6 +244,12 @@ class JoinService {
             return false
         }
         return true
+    }
+
+    //검색
+    fun search(keyword:String):List<Users>{
+        var searchResult = userRepository.findByuserNmContaining(keyword)
+        return searchResult
     }
 }
 
