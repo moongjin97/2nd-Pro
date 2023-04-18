@@ -23,7 +23,6 @@ data class JoinSaveDto (
     ) {
     fun toEntity(): Users {
         return Users(
-//            userNo = userNo?:0,
             userId = userId ?: "",
             userPw = userPw ?: "",
             userNm = userNm ?: "",

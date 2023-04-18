@@ -12,18 +12,10 @@
         </a>
 <!--        여기부터-->
         <div class="sc-Galmp hUqPTq">
-            <form th:action="@{/main/search}" method="get">
+            <form th:action="@{/main/search}" method="get" onsubmit="return CheckValue()">
             <label for="search"><button class="sc-fWCJzd iBVKZA"></button></label>
             <input id="search" class="search-bar" type="text" placeholder="검색" onclick="view()" name="keyword">
-<!--                onkeyup="inputValue"-->
-            <div class="search-list" style="display:none;">
-                <div th:each="search : ${search}">
-                   <span th:text="${search.userId}">아이디</span>
-                   <span th:text="${search.userName}">이름</span>
-                </div>
-                <div class="recent-container">
-         </div>
-    </div></form>
+</form>
 </div>
 <!--      여기까지-->
         <div class="sc-jQrDum jjOSBS">
@@ -255,6 +247,16 @@
         }else{
             view.style.display = 'none';
         }
+        }
+
+        const CheckValue = () => {
+        var search = document.getElementById('search');
+        if(search.value == ""){
+        alert('검색어를 입력해주세요.');
+        document.getElementById('search').focus();
+        return false;
+        }
+        retuen true;
         }
 
     </script>

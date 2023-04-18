@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="/css/searchResult.css" />
+</head>
+<body>
+
+<!--<nav th:replace="fragment/header :: headerFragment"></nav>-->
+<div class="sc-Galmp hUqPTq">
+    <form th:action="@{/main/search}" method="get" onsubmit="return CheckValue()" >
+        <label for="search"><button class="sc-fWCJzd iBVKZA"></button></label>
+        <input id="search" class="search-bar" type="text" placeholder="검색" onclick="view()" name="keyword">
+    </form>
+</div>
+    <div class="search-list">
+<!--      style="display:none;"-->
+<!--        th:if="${userInfo.userIntro eq null}"-->
+        <th:block th:if = "${#lists.isEmpty(search)}">
+            <div> 검색결과가 없습니다.</div>
+        </th:block>
+        <th:block th:unless = "${#lists.isEmpty(search)}">
+        <div class="sc-clIzBv jAvvAf" th:each="search : ${search}">
+          <div>
+              <a href="#">
+          <img src="https://instagram-s3-dev.s3.ap-northeast-2.amazonaws.com/member/base-UUID_base.PNG.png"
+               alt="member" class="profile-image">
+          </div>
+          <div id="div1">
+          <div class="profile-contents">
+            <span th:text="${search.userId}" id="username">아이디</span>
+          </div>
+            <div class="name-container">
+              <span th:text="${search.userNm}">이름</span>
+            </div>
+              </a>
+          </div>
+      </div>
+        </th:block>
+
+
+    </div>
+
+<!--<span th:text="${search.userId}">아이디</span>-->
+<!--<span th:text="${search.userNm}">이름</span>-->
+
+</body>
+<script>
+            const CheckValue = () => {
+        var search = document.getElementById('search');
+        if(search.value == ""){
+        alert('검색어를 입력해주세요.');
+        document.getElementById('search').focus();
+        return false;
+        }
+        retuen true;
+        }
+
+</script>
+</html>

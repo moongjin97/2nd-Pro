@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestParam
+import kotlin.reflect.jvm.internal.impl.load.kotlin.PackagePartProvider.Empty
 
 @Controller
 class MainController (private val joinService: JoinService){
@@ -25,13 +26,14 @@ class MainController (private val joinService: JoinService){
     fun mainForm():String{
         return "mainForm"
     }
-    //검색 액션받기
+    //검색 액션받기(CSS 깨짐)
     @GetMapping("/main/search")
     fun search(model: Model,@RequestParam(value = "keyword")keyword:String):String{
-        var searchRerult = joinService.search(keyword)
-        println("결과값 : ${searchRerult}")
-        model.addAttribute("search", searchRerult)
-        return "mainForm"
+
+        var searchResult = joinService.search(keyword)
+        println("결과값 : ${searchResult}")
+        model.addAttribute("search", searchResult)
+        return "searchResult"
     }
 
     @GetMapping("/join")
