@@ -11,9 +11,7 @@ import java.util.*
 interface UserRepository :JpaRepository<Users,Int> {
   //아이디로찾기
   fun findByUserId(userId: String): Users
-
-    @Query(value = "select * from USERS where USER_ID = :user_ID_param", nativeQuery = true)
-    fun findByUserRole(@Param("USER_ID_param") userId: String): Optional<Users>
+  
 
   // 폰넘버로찾기
      fun findByUserPhone(findInfo: String): Users
