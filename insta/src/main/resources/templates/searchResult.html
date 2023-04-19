@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <title>Title</title>
   <link rel="stylesheet" href="/css/searchResult.css" />
+    <link rel="stylesheet" href="/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="/css/modal.css" type="text/css" />
 </head>
 <body>
 
-<!--<nav th:replace="fragment/header :: headerFragment"></nav>-->
-<div class="sc-Galmp hUqPTq">
-    <form th:action="@{/main/search}" method="get" onsubmit="return CheckValue()" >
-        <label for="search"><button class="sc-fWCJzd iBVKZA"></button></label>
-        <input id="search" class="search-bar" type="text" placeholder="검색" onclick="view()" name="keyword">
-    </form>
-</div>
+<nav th:replace="fragment/header :: headerFragment"></nav>
+<!--<div class="sc-Galmp hUqPTq">-->
+<!--    <form th:action="@{/main/search}" method="get" onsubmit="return CheckValue()" >-->
+<!--        <label for="search"><button class="sc-fWCJzd iBVKZA"></button></label>-->
+<!--        <input id="search" class="search-bar" type="text" placeholder="검색" onclick="view()" name="keyword">-->
+<!--    </form>-->
+<!--</div>-->
+
     <div class="search-list">
-<!--      style="display:none;"-->
-<!--        th:if="${userInfo.userIntro eq null}"-->
         <th:block th:if = "${#lists.isEmpty(search)}">
             <div> 검색결과가 없습니다.</div>
         </th:block>
@@ -38,8 +39,6 @@
           </div>
       </div>
         </th:block>
-
-
     </div>
 
 <!--<span th:text="${search.userId}">아이디</span>-->

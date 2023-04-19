@@ -19,6 +19,7 @@ font-weight:600;
 }
 
 .search-list{
+    margin-left:300px;
     display: flex;
     margin-top:50px;
     width: 500px;

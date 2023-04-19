@@ -476,7 +476,7 @@ button {
     width: 100%;
 }
 .search-list{
-    display:none;
+
     position: absolute;
     transform: translate3d(-94px, 0px, 0px);
     top: 42px;
