@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestParam
+import javax.servlet.http.HttpSession
 import kotlin.reflect.jvm.internal.impl.load.kotlin.PackagePartProvider.Empty
 
 @Controller
@@ -18,8 +19,14 @@ class MainController (private val joinService: JoinService){
 
 
     @GetMapping("/")
-    fun index():String{
-        return "index"
+    fun index(session: HttpSession):String{
+        var userId = session.getAttribute("userId") as String?
+        println("유저 아이디 ${userId}")
+        if(userId == null){
+            return "index"
+        }else{
+            return "mainForm"
+        }
     }
 
     @GetMapping("/main")
