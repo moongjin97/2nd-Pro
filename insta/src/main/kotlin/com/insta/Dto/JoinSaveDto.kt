@@ -13,6 +13,7 @@ data class JoinSaveDto (
     var userEmail:String?,
     var userJoinDt:LocalDateTime?,
     var userDelDt:LocalDateTime?,
+    var userRole:String?,
     var userSt:String?
 
     ) {
@@ -26,6 +27,7 @@ data class JoinSaveDto (
             userEmail = userEmail ?: null,
             userJoinDt = userJoinDt ?: LocalDateTime.now(),
             userDelDt = userDelDt ?: null,
+            userRole = userRole ?: "ROLE_USER",
             userSt = userSt ?: "회원"
         )
     }

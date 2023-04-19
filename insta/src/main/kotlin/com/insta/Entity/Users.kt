@@ -23,6 +23,8 @@ data class Users(
     val userJoinDt: LocalDateTime,
     @Column(name = "DEL_DT")
     val userDelDt: LocalDateTime?,
+    @Column(name = "USER_ROLE")
+    val userRole: String,
     @Column(name = "USER_ST")
     val userSt: String
 )

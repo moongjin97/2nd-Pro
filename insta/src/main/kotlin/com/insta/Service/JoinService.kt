@@ -34,7 +34,7 @@ class JoinService {
 
     fun saveJoin (joinFirstDto: JoinFirstDto):Boolean{
         println(joinFirstDto.toString())
-        var joinSaveDto = JoinSaveDto(null,null,null,null,null,null,null,null,null)
+        var joinSaveDto = JoinSaveDto(null,null,null,null,null,null,null,null,null, null)
         val PaE = joinFirstDto.userPaE
         println(" 나온값 ${PaE}")
 
@@ -215,7 +215,7 @@ class JoinService {
     }
 
     fun userInfoDto(userInfo: Users): JoinSaveDto {
-        var joinSaveDto = JoinSaveDto(null,null,null,null,null,null,null,null,null)
+        var joinSaveDto = JoinSaveDto(null,null,null,null,null,null,null,null,null, null)
         joinSaveDto.userNo = userInfo.userNo
         joinSaveDto.userId = userInfo.userId
         joinSaveDto.userPw = userInfo.userPw
@@ -224,6 +224,7 @@ class JoinService {
         joinSaveDto.userEmail = userInfo.userEmail
         joinSaveDto.userJoinDt = userInfo.userJoinDt
         joinSaveDto.userDelDt = userInfo.userDelDt
+        joinSaveDto.userRole = userInfo.userRole
         joinSaveDto.userSt = userInfo.userSt
         return joinSaveDto
     }
