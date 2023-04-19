@@ -19,10 +19,17 @@
     </form>
 </div>
 <div class="search-list">
+    <div style="
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    min-height: 400px;
+    background-color: rgb(255, 255, 255);
+">
     <!--      style="display:none;"-->
     <!--        th:if="${userInfo.userIntro eq null}"-->
     <th:block th:if="${#lists.isEmpty(search)}">
-        <div> 검색결과가 없습니다.</div>
+        <div style="margin-top: 5px;"> 검색결과가 없습니다.</div>
     </th:block>
     <th:block th:unless="${#lists.isEmpty(search)}">
         <div class="sc-clIzBv jAvvAf" th:each="search : ${search}">
@@ -42,8 +49,7 @@
             </div>
         </div>
     </th:block>
-
-
+    </div>
 </div>
 
 <!--<span th:text="${search.userId}">아이디</span>-->
