@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        #file-input {
+            display: none;
+        }
+    </style>
+</head>
 <body>
 <nav class="sc-gsNilK hueUZT" th:fragment="headerFragment">
     <div class="sc-bXTejn dvsSpq">
@@ -265,6 +272,13 @@
             retuen
             true;
         }
+
+        const uploadButton = document.getElementById('upload-button');
+        const fileInput = document.getElementById('file-input');
+
+        uploadButton.addEventListener('click', () => {
+            fileInput.click();
+        });
 
     </script>
 </nav>
