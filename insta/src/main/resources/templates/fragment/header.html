@@ -1,12 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <style>
-        #file-input {
-            display: none;
-        }
-    </style>
-</head>
 <body>
 <nav class="sc-gsNilK hueUZT" th:fragment="headerFragment">
     <div class="sc-bXTejn dvsSpq">
@@ -188,7 +181,8 @@
         </div>
     </div>
     <div id="modal-root" class="modal" style="display: none">
-        <div width="855" height="965" class="sc-iwjdpV zLuK">
+        <div id="modalArea" class="sc-iwjdpV zLuK" style="width: 855; height: 965;">
+<!--            width="855" height="965"-->
             <svg class="close-modal" aria-label="\uB2EB\uAE30" color="#ffffff" fill="#ffffff" height="24" role="img"
                  viewBox="0 0 24 24"
                  width="24">
@@ -199,7 +193,7 @@
                       x1="20.649" x2="3.354" y1="20.649" y2="3.354"></line>
             </svg>
             <div radius="12" class="sc-gKclnd jQaYLF">
-                <div class="sc-cZMNgc NQRkD">
+                <div class="sc-cZMNgc NQRkD" id="modalCon1" style="display: none">
                     <header class="sc-dvQaRk elJnFq"><h1>새 게시물 만들기</h1></header>
 
                     <div class="sc-jIkXHa ihROgv">
@@ -216,14 +210,14 @@
                             </svg>
                             <div><h2>사진을 여기 끌어다 놓으세요</h2>
                                 <h3>최대 10개의 사진을 업로드할 수 있습니다</h3></div>
-                            <button type="button" radius="4" color="white" class="sc-bBHHxi fhNseF">컴퓨터에서 선택</button>
+                            <button type="button" radius="4" color="white" class="sc-bBHHxi fhNseF" id="upload-button">컴퓨터에서 선택</button>
                         </div>
                         <form enctype="multipart/form-data" method="POST" role="presentation"><input
-                                accept="image/jpeg,image/png,image/heic,image/heif" multiple="" type="file"></form>
+                                accept="image/jpeg,image/png,image/heic,image/heif" multiple="" type="file" id="file-input"></form>
                     </div>
                 </div>
 
-                <div class="sc-cZMNgc NQRkD" style="display: none">
+                <div class="sc-cZMNgc NQRkD" id="modalCon2" style="display: none">
                     <header class="sc-dvQaRk elJnFq">
                         <div>
                             <button>
@@ -246,9 +240,10 @@
                     <div class="sc-bTfYFJ brISdc">
                         <div class="upload__contentImg"
                              style="width: 855px; height: 855px; min-width: 350px; min-height: 350px;">
-                            <div class="contentImg__relative" style="width: 855px; height: 855px;"><img
-                                    src="blob:http://ec2-52-79-71-191.ap-northeast-2.compute.amazonaws.com/3c40ae32-4ff2-4222-a7ed-fde6073d0390"
-                                    alt="태그할 수 있는 사진"></div>
+                            <div class="contentImg__relative" style="width: 855px; height: 855px;"><img id="addImg"
+                                    src=""
+                                    alt="태그할 수 있는 사진"
+                            style="width: 100%; height: 100%"></div>
                         </div>
                         <div class="upload__contents" style="height: 855px;">
                             <div class="upload__contentsScroll">
@@ -299,6 +294,7 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script type="text/javascript">
         const myProfile = document.getElementById('myProfile');
         const profileMenu = document.getElementById('profileMenu')
@@ -310,21 +306,36 @@
             }
         });
         const modal = document.getElementById('modal-root');
+        const modalCon1 = document.getElementById('modalCon1');
+        const modalCon2 = document.getElementById('modalCon2');
         const btnOpenPopup = document.getElementById('add-post');
         const beforeIcon = document.getElementById('before-icon');
         const afterIcon = document.getElementById('after-icon');
+        const closeBtn = modal.querySelector(".close-modal");
+
+        const uploadButton = document.getElementById('upload-button');
+        const fileInput = document.getElementById('file-input');
+        const addImg = document.getElementById('addImg');
 
 
         btnOpenPopup.addEventListener('click', () => {
             beforeIcon.style.display = 'none';
             afterIcon.style.display = 'block';
             modal.style.display = 'block';
+            modalCon1.style.display = 'flex';
         });
-        const closeBtn = modal.querySelector(".close-modal");
+
         closeBtn.addEventListener("click", e => {
             afterIcon.style.display = 'none';
             beforeIcon.style.display = 'block';
             modal.style.display = 'none';
+            modalCon2.style.display = 'none';
+            if (modal.style.display === 'none') {
+                $('#file-input').val("");
+                modalArea.classList.remove('kTuChb');
+                modalArea.classList.add('zLuK');
+                modalArea.style.width = '855';
+            }
         })
 
         const view = () => {
@@ -347,12 +358,39 @@
             true;
         }
 
-        const uploadButton = document.getElementById('upload-button');
-        const fileInput = document.getElementById('file-input');
-
         uploadButton.addEventListener('click', () => {
             fileInput.click();
         });
+
+        // fileInput.onchange = function(event) {
+        //     let files = event.target.files;
+        //     if (files != null) {
+        //         modalCon1.style.display = 'none';
+        //         modalCon2.style.display = 'block';
+        //     }
+        // }
+
+        const modalArea = document.getElementById('modalArea');
+
+        fileInput.addEventListener('change', () => {
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.addEventListener('load', () => {
+                // 파일 내용을 읽은 후, 이미지 태그의 src 속성에 설정합니다.
+                addImg.src = reader.result;
+            });
+
+                if (file != null) {
+                    modalCon1.style.display = 'none';
+                    modalCon2.style.display = 'flex';
+                    modalArea.classList.remove('zLuK');
+                    modalArea.classList.add('kTuChb');
+                    modalArea.style.width = '1195';
+                }
+            reader.readAsDataURL(file);
+        });
+
 
     </script>
 </nav>
