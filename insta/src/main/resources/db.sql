@@ -18,7 +18,7 @@ SELECT * FROM users;
 
 CREATE TABLE `BOARD`(
 		BOARD_NO INT PRIMARY KEY AUTO_INCREMENT, 		--  글 번호
-		USER_ID VARCHAR(30) NOT NULL UNIQUE, 			--  글쓴이
+		USER_ID VARCHAR(30) NOT             , 			--  글쓴이
 		BOARD_CONTENT TEXT NOT NULL,					--  글내용
 		BOARD_PICTURE VARCHAR(255),               	    --  이미지
 		WRITE_TIME DATETIME NOT NULL DEFAULT NOW(),	    --  작성시간

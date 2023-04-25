@@ -233,6 +233,8 @@
                             </button>
                         </div>
                         <h1>새 게시물 만들기</h1>
+                        <form action="/boardWrite" method="post">
+                            <input type="hidden" th:value="${session.userId}" name="userId">
                         <div>
                             <button class="upload__next">공유하기</button>
                         </div>
@@ -240,6 +242,7 @@
                     <div class="sc-bTfYFJ brISdc">
                         <div class="upload__contentImg"
                              style="width: 855px; height: 855px; min-width: 350px; min-height: 350px;">
+<!--                            이게 이미지 박스-->
                             <div class="contentImg__relative" style="width: 855px; height: 855px;"><img id="addImg"
                                     src=""
                                     alt="태그할 수 있는 사진"
@@ -251,9 +254,10 @@
                                     <div class="textarea__header"><img
                                             src="https://instagram-s3-dev.s3.ap-northeast-2.amazonaws.com/member/base-UUID_base.PNG.png"
                                             alt="유효하지 않은 url입니다.">
-                                        <div>test</div>
+                                        <div th:text="${session.userId}">test</div>
                                     </div>
-                                    <textarea placeholder="문구 입력..." maxlength="2200"></textarea>
+                                    <textarea name="boardContent" placeholder="문구 입력..." maxlength="2200"></textarea>
+                                    </form>
                                     <div class="textarea__bottom">
                                         <svg aria-label="\uC774\uBAA8\uD2F0\uCF58" color="#262626" fill="#262626"
                                              height="20" role="img" viewBox="0 0 48 48" width="20">
